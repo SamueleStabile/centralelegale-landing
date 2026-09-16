@@ -338,7 +338,7 @@ html:not(.js) .stickybar { display: none; }
 .studio { background: var(--avorio); border-top: 1px solid var(--hairline); }
 .studio__grid { display: grid; grid-template-columns: 5fr 4.4fr 2.6fr; gap: clamp(28px, 4vw, 64px); align-items: start; }
 .studio__ritratti { display: grid; grid-template-columns: repeat(2, minmax(150px, 1fr)); gap: clamp(16px, 1.6vw, 24px); }
-.cameo { text-align: center; }
+.cameo { margin: 0; text-align: center; }
 .cameo__arco {
   position: relative;
   border: 1px solid var(--hairline-forte);
