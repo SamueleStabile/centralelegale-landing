@@ -41,6 +41,7 @@ body { margin: 0; background: var(--night-deep); color: var(--ink-light); font-f
 img { max-width: 100%; display: block; }
 a { color: inherit; }
 :focus-visible { outline: 2px solid var(--dawn); outline-offset: 3px; }
+.band--giorno :focus-visible, .band--giorno-2 :focus-visible, .giorno :focus-visible, .foot :focus-visible { outline-color: var(--cobalt); }
 
 .num { font-variant-numeric: tabular-nums; }
 .container { max-width: 1180px; margin-inline: auto; padding-inline: clamp(20px, 4vw, 56px); }
@@ -59,6 +60,8 @@ a { color: inherit; }
 .btn--luce:active { transform: translateY(0); }
 .btn--notte { background: var(--night); color: var(--ink-light); }
 .btn--notte:hover { background: var(--cobalt); }
+.btn[disabled] { opacity: 0.55; cursor: not-allowed; }
+.btn--luce[disabled]:hover { box-shadow: none; transform: none; }
 
 /* ============================================================
    HERO — ciclorama notturno con orizzonte cobalto
@@ -75,10 +78,13 @@ a { color: inherit; }
 }
 .hero__nav { position: relative; z-index: 3; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: clamp(20px, 3vw, 34px) clamp(20px, 4vw, 56px); }
 .hero__logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--ink-light); }
-.hero__logo svg { width: 34px; height: auto; }
+.hero__logo svg { width: 26px; height: auto; }
+.hero__lead { margin: clamp(14px, 1.8vw, 22px) 0 0 0; max-width: 46ch; font-size: 15.5px; line-height: 1.7; color: #e2e9ff; }
 .hero__logo b { font-weight: 600; font-size: 22px; letter-spacing: -0.01em; line-height: 1.4; }
 .hero__logo b span { font-weight: 400; }
 .hero__navcue { color: var(--ink-light-70); }
+.hero__navtel { color: var(--ink-light-70); font-size: 13px; }
+.hero__navright { display: flex; align-items: baseline; gap: 12px; }
 .hero__stage { position: relative; z-index: 3; flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px clamp(20px, 4vw, 56px) clamp(120px, 18vh, 200px); }
 .hero__title {
   margin: 0; max-width: 16ch;
@@ -100,7 +106,8 @@ a { color: inherit; }
 .hero__strip .num { color: var(--dawn); margin-right: 8px; }
 .hero__strip .sep { width: 1px; height: 16px; background: rgba(238,242,255,0.28); }
 @media (max-width: 760px) {
-  .hero__navcue { display: none; }
+  .hero__navcue { font-size: 11px; letter-spacing: 0.06em; }
+  .hero__navtel { font-size: 11px; }
   .hero__strip ul { flex-wrap: wrap; gap: 8px 16px; }
   .hero__strip .sep { display: none; }
   .hero__strip li { font-size: 11px; }
@@ -171,6 +178,7 @@ a { color: inherit; }
 .casi { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(18px, 2vw, 30px); }
 .caso { border: 1px solid rgba(14,27,58,0.16); background: rgba(255,255,255,0.6); padding: clamp(24px, 2.6vw, 38px); display: flex; flex-direction: column; gap: 16px; }
 .caso__tipo { margin: 0; color: var(--cobalt); text-transform: none; letter-spacing: 0.03em; font-weight: 600; font-size: 14px; }
+.caso__dl { display: contents; }
 .caso__pair { display: grid; grid-template-columns: 130px 1fr; gap: 14px; border-top: 1px solid rgba(14,27,58,0.12); padding-top: 14px; }
 .caso__pair dt { font-size: 11px; letter-spacing: var(--track); text-transform: uppercase; color: var(--ink-dark-70); }
 .caso__pair dd { margin: 0; font-size: 15px; color: var(--ink-dark-70); }
@@ -245,9 +253,10 @@ a { color: inherit; }
    CHIUSURA — giorno pieno
    ============================================================ */
 .giorno {
-  background: linear-gradient(180deg, #c17f9e 0%, #ffc1d6 38%, #ffe9ef 66%, #ffffff 100%);
-  color: var(--ink-dark); text-align: center; padding-block: clamp(96px, 13vw, 200px);
+  background: linear-gradient(180deg, #c17f9e 0%, #ffc1d6 34%, #ffe9ef 62%, #ffffff 100%);
+  color: var(--ink-dark); text-align: center; padding: 0 0 150px;
 }
+.giorno::before { content: ""; display: block; height: 230px; margin-bottom: 90px; background: linear-gradient(180deg, #060a17 0%, #33224d 42%, rgba(193,127,158,0) 100%); }
 .giorno__t { margin: 0 auto; max-width: 16ch; font-weight: 700; font-size: clamp(34px, 5vw, 72px); line-height: 1.06; letter-spacing: -0.03em; color: #10123a; }
 .giorno__p { margin: 24px auto 0; max-width: 52ch; color: #231d44; }
 .giorno__cta { margin-top: clamp(36px, 4vw, 56px); }
@@ -257,7 +266,7 @@ a { color: inherit; }
 .foot { background: #ffffff; color: var(--ink-dark); border-top: 1px solid rgba(14,27,58,0.14); padding-block: clamp(40px, 5vw, 68px); }
 .foot__grid { display: grid; grid-template-columns: auto 1fr; gap: clamp(28px, 5vw, 80px); align-items: start; }
 .foot__mark { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 20px; }
-.foot__mark svg { width: 30px; }
+.foot__mark svg { width: 24px; }
 .foot address { font-style: normal; font-size: 13.5px; line-height: 2; color: var(--ink-dark-70); }
 .foot address strong { color: var(--ink-dark); font-weight: 600; }
 .foot__legal { margin-top: 22px; display: flex; gap: 22px; font-size: 13px; }
@@ -269,6 +278,9 @@ html.js .rise { opacity: 0; transform: translateY(18px); transition: opacity 800
 html.js .rise.in { opacity: 1; transform: none; }
 html.js .hero__family { animation: glow 6s ease-in-out infinite alternate; }
 @keyframes glow { from { filter: drop-shadow(0 0 18px rgba(255,120,180,0.35)); } to { filter: drop-shadow(0 0 34px rgba(255,140,200,0.65)); } }
+@media print {
+  html.js .rise { opacity: 1 !important; transform: none !important; }
+}
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   html.js .rise { opacity: 1; transform: none; transition: none; }
