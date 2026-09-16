@@ -44,6 +44,8 @@
 * { box-sizing: border-box; }
 [hidden] { display: none !important; }
 .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }
+.skip { position: fixed; top: -100px; left: 16px; z-index: 90; background: var(--petrolio-notte); color: #f9f5ec; padding: 12px 20px; font-size: 14px; text-decoration: none; transition: top 200ms var(--ease-soft); }
+.skip:focus-visible { top: 12px; color: #f9f5ec; }
 html { scroll-behavior: smooth; }
 body {
   margin: 0;
@@ -60,6 +62,8 @@ img { max-width: 100%; display: block; }
 a { color: var(--petrolio); text-underline-offset: 0.22em; text-decoration-thickness: 1px; }
 a:hover { color: var(--verde-salvia); }
 :focus-visible { outline: 2px solid var(--verde-salvia); outline-offset: 3px; }
+.porta :focus-visible, .section--scuro :focus-visible, .patti :focus-visible, .alba :focus-visible, .verifica :focus-visible, .porta__cta:focus-visible { outline-color: #f9f5ec; }
+.verifica__strumento :focus-visible { outline-color: var(--verde-salvia); }
 
 /* ---------- Grana di carta (layer fisso, mai sui contenuti) ---------- */
 .grana {
@@ -125,12 +129,14 @@ a:hover { color: var(--verde-salvia); }
   transition: transform 600ms var(--ease-soft), visibility 0s 600ms;
 }
 .stickybar.in { transform: translateY(0); visibility: visible; transition: transform 600ms var(--ease-soft); }
-.stickybar__brand { display: flex; align-items: baseline; gap: 10px; font-family: var(--serif); font-size: 17px; color: var(--petrolio-notte); }
+.stickybar__brand { display: flex; align-items: baseline; gap: 10px; margin: 0; font-family: var(--serif); font-size: 17px; color: var(--petrolio-notte); }
 .stickybar__brand small { font-family: var(--sans); font-size: 12.5px; color: var(--inchiostro-70); }
 .stickybar__right { display: flex; align-items: center; gap: 18px; }
 .stickybar__tempo { font-size: 12.5px; color: var(--inchiostro-70); }
 .stickybar__cta { font-size: 11.5px; text-decoration: none; color: var(--avorio-alto); background: var(--petrolio-verde); border: 1px solid var(--petrolio-verde); padding: 11px 20px; letter-spacing: var(--track-caps); text-transform: uppercase; font-weight: 500; transition: background 300ms var(--ease-soft); }
 .stickybar__cta:hover { background: var(--petrolio-notte); color: var(--avorio-alto); }
+.stickybar__cta .cta-corto { display: none; }
+@media (max-width: 760px) { .stickybar__cta .cta-esteso { display: none; } .stickybar__cta .cta-corto { display: inline; } .stickybar__cta { white-space: nowrap; padding: 9px 16px; } }
 html:not(.js) .stickybar { display: none; }
 @media (max-width: 760px) { .stickybar__brand small, .stickybar__tempo { display: none; } }
 
@@ -166,7 +172,7 @@ html:not(.js) .stickybar { display: none; }
 .hero__foto::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(17,59,68,0.10) 0%, rgba(17,59,68,0) 30%); pointer-events: none; }
 .hero__arco-segno { position: absolute; left: 50%; top: clamp(18px, 3vw, 40px); transform: translateX(-50%); width: min(72%, 300px); pointer-events: none; }
 .hero__arco-segno svg { width: 100%; height: auto; display: block; }
-.hero__foto-nota { position: absolute; right: 14px; bottom: 12px; margin: 0; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(249, 245, 236, 0.85); text-shadow: 0 1px 8px rgba(10, 25, 22, 0.6); }
+.hero__foto-nota { position: absolute; right: 14px; bottom: 12px; margin: 0; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #f2efe6; background: rgba(10, 25, 22, 0.6); padding: 5px 10px; }
 
 /* Bottone primario */
 .btn {
@@ -258,7 +264,7 @@ html:not(.js) .stickybar { display: none; }
    ============================================================ */
 .fotobanda { position: relative; height: clamp(320px, 52vw, 620px); overflow: clip; background: var(--petrolio-notte); }
 .fotobanda__img { position: absolute; left: 0; right: 0; top: -12%; height: 124%; width: 100%; object-fit: cover; will-change: transform; }
-.fotobanda__nota { position: absolute; right: 16px; bottom: 12px; margin: 0; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(249, 245, 236, 0.85); text-shadow: 0 1px 8px rgba(10, 25, 22, 0.6); }
+.fotobanda__nota { position: absolute; right: 16px; bottom: 12px; margin: 0; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #f2efe6; background: rgba(10, 25, 22, 0.6); padding: 5px 10px; }
 
 /* ============================================================
    04 · CASI — registro editoriale (titolo sticky a sinistra)
@@ -283,7 +289,7 @@ html:not(.js) .stickybar { display: none; }
 /* ============================================================
    05 · METODO
    ============================================================ */
-.metodo { background: var(--avorio); border-top: 1px solid var(--hairline); }
+.metodo { background: var(--avorio-alto); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
 .metodo__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(24px, 2.5vw, 40px); }
 .passo { position: relative; padding-top: 26px; }
 .passo::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--hairline-forte); }
@@ -304,6 +310,9 @@ html:not(.js) .stickybar { display: none; }
    OFFERTA — il riquadro della verifica
    ============================================================ */
 .offerta { background: var(--avorio); }
+.offerta::before { content: ""; position: absolute; inset: 0; background-image: url('../img/foto/colonnato.webp'); background-size: cover; background-position: 50% 55%; opacity: 0.08; pointer-events: none; }
+.offerta > .container { position: relative; }
+.offerta__azione .btn { white-space: nowrap; padding-left: 24px; padding-right: 24px; font-size: 12px; }
 .offerta__box {
   position: relative;
   border: 1px solid var(--petrolio-notte); outline: 1px solid var(--petrolio-notte); outline-offset: 4px;
@@ -313,7 +322,7 @@ html:not(.js) .stickybar { display: none; }
 }
 .offerta__figura { margin: 0; align-self: stretch; position: relative; min-height: 240px; }
 .offerta__figura img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.offerta__figura figcaption { position: absolute; right: 10px; bottom: 8px; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(249, 245, 236, 0.85); text-shadow: 0 1px 8px rgba(10, 25, 22, 0.6); }
+.offerta__figura figcaption { position: absolute; right: 10px; bottom: 8px; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #f2efe6; background: rgba(10, 25, 22, 0.6); padding: 5px 10px; }
 .offerta__lista h3 { margin: 0 0 16px 0; font-family: var(--serif); font-weight: 400; font-size: clamp(24px, 2.2vw, 32px); line-height: 1.18; color: var(--petrolio-notte); }
 .offerta__lista ul { list-style: none; margin: 0; padding: 0; }
 .offerta__lista li { border-top: 1px solid var(--hairline); padding: 11px 0; font-size: 14.5px; color: var(--inchiostro-70); }
@@ -327,8 +336,8 @@ html:not(.js) .stickybar { display: none; }
    06 · STUDIO
    ============================================================ */
 .studio { background: var(--avorio); border-top: 1px solid var(--hairline); }
-.studio__grid { display: grid; grid-template-columns: 4fr 4fr 4fr; gap: clamp(28px, 4vw, 72px); align-items: start; }
-.studio__ritratti { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(16px, 1.6vw, 24px); }
+.studio__grid { display: grid; grid-template-columns: 5fr 4.4fr 2.6fr; gap: clamp(28px, 4vw, 64px); align-items: start; }
+.studio__ritratti { display: grid; grid-template-columns: repeat(2, minmax(150px, 1fr)); gap: clamp(16px, 1.6vw, 24px); }
 .cameo { text-align: center; }
 .cameo__arco {
   position: relative;
@@ -405,6 +414,8 @@ html:not(.js) .stickybar { display: none; }
 .verifica__head { text-align: center; max-width: 720px; margin: 0 auto clamp(40px, 5vw, 72px); }
 .verifica__head .section__title { color: #f0ebdd; }
 .verifica__head .section__intro { margin: 18px auto 0; color: var(--secondario-su-petrolio); }
+.verifica__nota { margin: 14px auto 0; max-width: 58ch; font-size: 13px; color: var(--secondario-su-petrolio); }
+.form__modo { margin: 0 0 6px 0; font-size: 13px; }
 .verifica__strumento {
   background: var(--avorio-alto); color: var(--inchiostro);
   border: 1px solid var(--avorio-alto); outline: 1px solid rgba(238, 233, 218, 0.5); outline-offset: 6px;
@@ -433,13 +444,14 @@ html:not(.js) .stickybar { display: none; }
 .campo label { font-size: 12px; color: var(--inchiostro-70); }
 .campo input, .campo textarea {
   width: 100%;
-  background: #ffffff; color: var(--inchiostro);
+  background: #fdfaf3; color: var(--inchiostro);
   border: 1px solid var(--hairline-forte); border-radius: 0;
-  font-family: var(--sans); font-size: 15px;
+  font-family: var(--sans); font-size: 16px;
   caret-color: var(--verde-salvia);
   padding: 14px 16px;
   transition: border-color 250ms var(--ease-soft);
 }
+.campo textarea { resize: vertical; }
 .campo input:hover, .campo textarea:hover { border-color: var(--petrolio-notte); }
 .campo input:focus, .campo textarea:focus { outline: 2px solid var(--verde-salvia); outline-offset: 2px; }
 .campo--full { grid-column: 1 / -1; }
@@ -476,7 +488,8 @@ html:not(.js) .wizard__stato, html:not(.js) .wizard__nav { display: none; }
 .alba__title { margin: 0 auto; max-width: 16em; font-family: var(--serif); font-weight: 400; font-size: clamp(34px, 4.6vw, 68px); line-height: 1.08; letter-spacing: -0.02em; color: #fdf9ef; }
 .alba__testo { margin: 26px auto 0; max-width: 52ch; color: #ecf3e7; }
 .alba__cta { margin-top: clamp(36px, 4vw, 56px); }
-.alba__micro { display: inline-block; margin: 18px auto 0 auto; background: var(--avorio-alto); border: 1px solid rgba(17, 59, 68, 0.25); font-size: 13px; font-weight: 500; color: var(--petrolio-notte); padding: 9px 16px; }
+.alba__coda { background: var(--avorio); border-bottom: 1px solid var(--hairline); text-align: center; }
+.alba__coda p { margin: 0; padding: 16px var(--gutter); font-size: 13.5px; font-weight: 500; color: var(--petrolio-notte); }
 .alba__micro .segnaposto { color: var(--petrolio); }
 
 /* ============================================================

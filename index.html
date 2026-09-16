@@ -12,10 +12,12 @@
 </head>
 <body>
 
+<a class="skip" href="#verifica">Vai al modulo di verifica</a>
+
 <div class="grana" aria-hidden="true"></div>
 
 <header class="nav">
-  <a class="nav__logo" href="#top" aria-label="centraleLegale — assistenza 24 ore su 24">
+  <a class="nav__logo" href="#top" aria-label="centraleLegale">
     <img src="assets/img/Marchio.Colori.svg" alt="centraleLegale" width="280" height="86">
   </a>
   <nav class="nav__links" aria-label="Sezioni della pagina">
@@ -34,7 +36,7 @@
   <p class="stickybar__brand">centraleLegale <small>— verifica della posizione debitoria</small></p>
   <div class="stickybar__right">
     <span class="stickybar__tempo">Risposta entro <span class="segnaposto">[tempo]</span> · Nessun impegno</span>
-    <a class="stickybar__cta" href="#verifica">Verifica la tua posizione</a>
+    <a class="stickybar__cta" href="#verifica"><span class="cta-esteso">Verifica la tua posizione</span><span class="cta-corto">Verifica ora</span></a>
   </div>
 </div>
 
@@ -96,7 +98,7 @@
         <article class="porta porta--bosco rv" style="--d:130ms">
           <span class="porta__chiave" aria-hidden="true"></span>
           <h3 class="porta__titolo">I debiti sono più di quello che riesci a pagare</h3>
-          <p class="porta__testo">Il Codice della Crisi prevede procedure che permettono di ristrutturare l’intera posizione debitoria in un piano sostenibile su tre anni e, in presenza dei requisiti di legge, di ottenere l’esdebitazione del residuo. Vale per tutti i debiti insieme: banche, finanziarie, Agenzia delle Entrate, comuni, sanzioni amministrative.</p>
+          <p class="porta__testo">Il Codice della Crisi prevede procedure che permettono di ristrutturare l’intera posizione debitoria in un piano sostenibile e, in presenza dei requisiti di legge, di ottenere l’esdebitazione del residuo. Vale per i debiti insieme: banche, finanziarie, Agenzia delle Entrate, comuni.</p>
           <a class="porta__cta caps" href="#verifica">Verifica la tua posizione</a>
         </article>
         <article class="porta porta--petrolio rv" style="--d:260ms">
@@ -113,9 +115,8 @@
   <section class="statement" aria-hidden="false">
     <div class="container">
       <p class="statement__testo">
-        <span class="riga"><span>Il problema non è solo il debito.</span></span>
-        <span class="riga" style="--d:90ms"><span><strong>È non sapere</strong> cosa si può</span></span>
-        <span class="riga" style="--d:180ms"><span>ancora fare.</span></span>
+        <span class="riga"><span>Il debito ha sempre un numero.</span></span>
+        <span class="riga" style="--d:90ms"><span><strong>Le soluzioni</strong> hanno una scadenza.</span></span>
       </p>
     </div>
     <div class="statement__vignetta" aria-hidden="true"></div>
@@ -150,9 +151,9 @@
   <section class="section casi" aria-labelledby="casi-title">
     <div class="container casi__grid">
       <div class="casi__sticky">
-        <h2 class="section__title rv" id="casi-title">Alcuni casi che<br><em>abbiamo seguito</em></h2>
+        <h2 class="section__title rv" id="casi-title">Alcuni casi<br><em>che abbiamo seguito</em></h2>
         <p class="rv" style="--d:100ms">Riportiamo gli estremi delle decisioni. I dati dei clienti sono omessi per riservatezza.</p>
-        <p class="casi__nota rv" style="--d:180ms">Ogni caso è diverso e nessun risultato può essere garantito in anticipo. Questi sono procedimenti realmente conclusi.</p>
+        <p class="casi__nota rv" style="--d:180ms">Ogni caso è diverso e nessun risultato può essere garantito in anticipo. Le schede saranno completate con gli estremi di procedimenti realmente conclusi dello studio.</p>
       </div>
       <div class="casi__list">
         <article class="caso rv">
@@ -192,7 +193,7 @@
     <div class="container">
       <header class="section__head section__head--split">
         <h2 class="section__title rv" id="metodo-title">Come <em>funziona</em></h2>
-        <p class="section__intro rv" style="--d:120ms">Quattro passi, dal racconto della tua situazione alla firma del mandato. Ogni passo finisce con qualcosa di concreto in mano a te.</p>
+        <p class="section__intro rv" style="--d:120ms">Quattro passi, dal racconto della tua situazione alla firma del mandato.</p>
       </header>
       <div class="metodo__grid">
         <article class="passo rv">
@@ -261,7 +262,7 @@
                 <path d="M6 70 V32 A24 24 0 0 1 54 32 V70" stroke="#1a5e58" stroke-width="2.5"/>
                 <path d="M24 6 h12 l3 10 h-18 z" fill="#3b8a64"/>
               </svg>
-              <figcaption class="cameo__nota caps">Inserire: ritratto</figcaption>
+              <span class="cameo__nota caps">Inserire: ritratto</span>
             </div>
             <p class="cameo__nome">Avv. Katia Ventura</p>
             <p class="cameo__albo segnaposto">[Iscritta all’Ordine degli Avvocati di ___, n. ___]</p>
@@ -272,7 +273,7 @@
                 <path d="M6 70 V32 A24 24 0 0 1 54 32 V70" stroke="#1a5e58" stroke-width="2.5"/>
                 <path d="M24 6 h12 l3 10 h-18 z" fill="#3b8a64"/>
               </svg>
-              <figcaption class="cameo__nota caps">Inserire: ritratto</figcaption>
+              <span class="cameo__nota caps">Inserire: ritratto</span>
             </div>
             <p class="cameo__nome">Avv. Mirko Ventura</p>
             <p class="cameo__albo segnaposto">[Iscritto all’Ordine degli Avvocati di ___, n. ___]</p>
@@ -289,7 +290,7 @@
         </div>
         <figure class="studio__figura rv" style="--d:240ms">
           <img src="assets/img/foto/biblioteca.webp" alt="Scaffali di una biblioteca giuridica con tomi rilegati in pelle — immagine illustrativa" width="1536" height="2048">
-          <figcaption>La biblioteca dello studio. Immagine illustrativa.</figcaption>
+          <figcaption>Una biblioteca giuridica. Immagine illustrativa.</figcaption>
         </figure>
       </div>
     </div>
@@ -330,7 +331,7 @@
   <section class="section faq" id="domande" aria-labelledby="faq-title">
     <div class="container faq__grid">
       <div class="faq__sticky">
-        <h2 class="section__title rv" id="faq-title">Le domande che<br><em>riceviamo più spesso</em></h2>
+        <h2 class="section__title rv" id="faq-title">Le domande<br><em>più frequenti</em></h2>
       </div>
       <div class="faq__list rv" style="--d:120ms">
         <details class="faq__item">
@@ -367,11 +368,13 @@
       <header class="verifica__head">
         <h2 class="section__title rv" id="verifica-title">Verifica la tua <em>posizione</em></h2>
         <p class="section__intro rv" style="--d:110ms">Rispondi a cinque domande. Ti ricontattiamo entro <span class="segnaposto">[tempo]</span> con una prima valutazione. Nessun impegno.</p>
+        <p class="verifica__nota rv" style="--d:160ms">I dati sono trattati secondo l’informativa privacy e coperti da segreto professionale. <span class="segnaposto">[Modulo in attivazione: campi dimostrativi]</span></p>
       </header>
       <div class="verifica__strumento rv" style="--d:180ms">
         <form class="form" id="form-verifica" action="#verifica">
+          <p class="form__modo"><a id="toggle-form" href="?form=step#verifica">Preferisci una domanda alla volta? Prova la versione guidata</a></p>
           <div class="wizard__stato" hidden>
-            <span class="wizard__conta num">Domanda <b>1</b> di 5</span>
+            <span class="wizard__conta num" aria-live="polite">Domanda <b>1</b> di 5</span>
             <span class="wizard__barra" aria-hidden="true"><i></i></span>
           </div>
           <fieldset data-step="1">
@@ -425,7 +428,6 @@
             <button class="btn" type="submit" disabled aria-describedby="nota-modulo">Invia la richiesta</button>
             <p class="form__privacy">I dati sono trattati secondo l’informativa privacy e coperti da segreto professionale.</p>
             <p class="form__nota segnaposto" id="nota-modulo">[Modulo in attivazione: si abilita quando il cliente fornisce l’email o il gestionale dedicati. I campi sono dimostrativi.]</p>
-            <p class="form__nota"><a id="toggle-form" href="?form=step#verifica">Preferisci una domanda alla volta? Prova la versione guidata</a></p>
           </div>
         </form>
       </div>
@@ -435,12 +437,15 @@
   <!-- 10 · ALBA -->
   <section class="alba" aria-labelledby="alba-title">
     <div class="container">
-      <h2 class="alba__title rv" id="alba-title">Prima si interviene, più strumenti ci sono.</h2>
+      <h2 class="alba__title rv" id="alba-title">Prima si interviene,<br>più strumenti ci sono.</h2>
       <p class="alba__testo rv" style="--d:110ms">Le procedure hanno termini precisi e alcune possibilità si esauriscono con il passare del tempo. Una verifica non impegna a nulla, ma ti dice con esattezza a che punto sei.</p>
       <p class="alba__cta rv" style="--d:220ms"><a class="btn btn--chiaro" href="#verifica">Verifica la tua posizione <span class="freccia" aria-hidden="true">→</span></a></p>
-      <p class="alba__micro rv" style="--d:300ms">Risposta entro <span class="segnaposto">[tempo]</span>. Nessun impegno.</p>
     </div>
   </section>
+
+  <div class="alba__coda">
+    <p>Risposta entro <span class="segnaposto">[tempo]</span>. Nessun impegno.</p>
+  </div>
 
 </main>
 
@@ -482,13 +487,19 @@
     setTimeout(revealAll, 1800);
   }
 
-  /* Barra sticky dopo l'hero */
-  var hero = document.querySelector('.hero');
+  /* Barra sticky: visibile dopo l'hero, mai sopra il form o il finale */
   var bar = document.querySelector('.stickybar');
-  if (hero && bar && 'IntersectionObserver' in window) {
-    new IntersectionObserver(function (entries) {
-      bar.classList.toggle('in', !entries[0].isIntersecting);
-    }, { rootMargin: '-80px 0px 0px 0px' }).observe(hero);
+  if (bar && 'IntersectionObserver' in window) {
+    var visto = { hero: true, verifica: false, alba: false };
+    function aggiornaBarra() { bar.classList.toggle('in', !visto.hero && !visto.verifica && !visto.alba); }
+    [['hero', '.hero'], ['verifica', '#verifica'], ['alba', '.alba']].forEach(function (cfg) {
+      var el = document.querySelector(cfg[1]);
+      if (!el) return;
+      new IntersectionObserver(function (entries) {
+        visto[cfg[0]] = entries[0].isIntersecting;
+        aggiornaBarra();
+      }, { rootMargin: '-80px 0px 0px 0px' }).observe(el);
+    });
   }
 
   /* Parallax leggero (solo trasform, rAF-throttled) */
@@ -510,8 +521,28 @@
     frame();
   }
 
-  /* Modalità wizard: ?form=step */
+  /* Risposte conservate tra le due modalità (sessionStorage) */
   var form = document.getElementById('form-verifica');
+  if (form && 'sessionStorage' in window) {
+    try {
+      var salvate = JSON.parse(sessionStorage.getItem('cl-verifica') || '{}');
+      Object.keys(salvate).forEach(function (nome) {
+        var campo = form.elements[nome];
+        if (!campo) return;
+        if (campo instanceof RadioNodeList || (campo.length && campo[0] && campo[0].type === 'radio')) { campo.value = salvate[nome]; }
+        else campo.value = salvate[nome];
+      });
+    } catch (e) {}
+    form.addEventListener('change', function () {
+      try {
+        var dati = {};
+        new FormData(form).forEach(function (v, k) { dati[k] = v; });
+        sessionStorage.setItem('cl-verifica', JSON.stringify(dati));
+      } catch (e) {}
+    });
+  }
+
+  /* Modalità wizard: ?form=step */
   var isStep = new URLSearchParams(location.search).get('form') === 'step';
   var toggle = document.getElementById('toggle-form');
   if (toggle && isStep) { toggle.textContent = 'Preferisci vedere tutte le domande insieme? Torna alla versione completa'; toggle.href = './#verifica'; }
@@ -538,6 +569,8 @@
       if (scorri) {
         var y = document.getElementById('verifica').getBoundingClientRect().top + scrollY - 70;
         scrollTo({ top: y, behavior: motionOk ? 'smooth' : 'auto' });
+        var leg = steps[i].querySelector('legend');
+        if (leg) { leg.setAttribute('tabindex', '-1'); leg.focus({ preventScroll: true }); }
       }
     }
     nav.addEventListener('click', function (e) {
