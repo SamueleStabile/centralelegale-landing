@@ -1,0 +1,424 @@
+/* ============================================================
+   centraleLegale — landing "Il Portale"
+   Pietra avorio, inchiostri petrolio, archi con chiave di volta,
+   hairline 1px, spigoli vivi. Fraunces + Poppins.
+   ============================================================ */
+
+/* ---------- Font ---------- */
+@font-face { font-family: 'Fraunces'; src: url('../fonts/Fraunces_72pt-Light.ttf') format('truetype'); font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url('../fonts/Fraunces_72pt-Regular.ttf') format('truetype'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url('../fonts/Fraunces_72pt-SemiBold.ttf') format('truetype'); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url('../fonts/Fraunces_72pt-Italic.ttf') format('truetype'); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url('../fonts/Fraunces_72pt-LightItalic.ttf') format('truetype'); font-weight: 300; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Poppins'; src: url('../fonts/Poppins-Regular.ttf') format('truetype'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Poppins'; src: url('../fonts/Poppins-Medium.ttf') format('truetype'); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Poppins'; src: url('../fonts/Poppins-SemiBold.ttf') format('truetype'); font-weight: 600; font-style: normal; font-display: swap; }
+
+/* ---------- Token ---------- */
+:root {
+  --avorio: #f8e9e8;
+  --avorio-alto: #fdf7f4;
+  --petrolio-notte: #113b44;
+  --petrolio: #0f4c4c;
+  --petrolio-verde: #1a5e58;
+  --verde-abete: #21665b;
+  --verde-bosco: #2c6f4f;
+  --verde-salvia: #3b8a64;
+  --inchiostro: #0d2d35;
+  --inchiostro-70: #40595c;
+  --hairline: rgba(17, 59, 68, 0.32);
+  --hairline-forte: rgba(17, 59, 68, 0.52);
+  --avorio-su-petrolio: #e3efe4;
+  --secondario-su-petrolio: #b9cdc6;
+  --serif: 'Fraunces', 'Times New Roman', serif;
+  --sans: 'Poppins', 'Helvetica Neue', Arial, sans-serif;
+  --track-caps: 0.14em;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --cw: calc(100vw / 2048); /* 1px del comp */
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--avorio);
+  color: var(--inchiostro);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+::selection { background: var(--petrolio-verde); color: var(--avorio-alto); }
+img { max-width: 100%; display: block; }
+a { color: var(--petrolio); text-underline-offset: 0.22em; text-decoration-thickness: 1px; }
+a:hover { color: var(--verde-salvia); }
+:focus-visible { outline: 2px solid var(--verde-salvia); outline-offset: 3px; }
+
+/* ---------- Utilità ---------- */
+.caps { font-family: var(--sans); font-weight: 500; text-transform: uppercase; letter-spacing: var(--track-caps); }
+.container { max-width: 1240px; margin-inline: auto; padding-inline: clamp(20px, 4vw, 56px); }
+.section { padding-block: 0; }
+.section__head { max-width: 760px; margin-bottom: clamp(40px, 5vw, 80px); }
+.section__title { margin: 0; font-family: var(--serif); font-weight: 600; font-size: clamp(30px, 3.6vw, 52px); line-height: 1.12; letter-spacing: -0.015em; color: var(--petrolio-notte); }
+.section__intro { margin: 22px 0 0 0; max-width: 62ch; color: var(--inchiostro-70); }
+.kicker { display: flex; align-items: center; gap: 14px; font-size: 12.5px; color: var(--petrolio-verde); margin: 0 0 26px 0; }
+.kicker::after { content: ""; flex: 0 0 48px; height: 1px; background: var(--hairline-forte); }
+.section--scuro .kicker { color: var(--verde-salvia); }
+.section--scuro .kicker::after { background: rgba(240, 235, 223, 0.4); }
+.segnaposto { color: var(--inchiostro-70); font-style: normal; }
+.section--scuro .segnaposto, .verifica .segnaposto, .patti .segnaposto { color: var(--secondario-su-petrolio); }
+.alba .segnaposto { color: #c5e3cc; }
+.num { font-variant-numeric: tabular-nums; }
+
+/* ============================================================
+   NAV (comp: h 137px)
+   ============================================================ */
+.nav {
+  display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  height: calc(var(--cw) * 137);
+  padding-inline: calc(var(--cw) * 84);
+  border-bottom: 1px solid var(--hairline);
+  background: var(--avorio);
+}
+.nav__logo { display: block; }
+.nav__logo img { height: calc(var(--cw) * 78); width: auto; }
+.nav__meta { display: flex; align-items: center; gap: calc(var(--cw) * 40); color: var(--petrolio-notte); }
+.nav__meta .caps { font-size: calc(var(--cw) * 19); }
+.nav__meta .sep { width: 1px; height: calc(var(--cw) * 34); background: var(--hairline-forte); }
+.nav__phone { text-decoration: none; color: var(--petrolio-notte); font-weight: 500; }
+.nav__phone:hover { color: var(--verde-salvia); }
+
+/* ============================================================
+   HERO (frame utile 2048 x 1107)
+   ============================================================ */
+.hero { position: relative; background: var(--avorio); overflow: hidden; }
+.hero__frame { position: relative; width: 100%; height: calc(var(--cw) * 1107); }
+.hero__content { position: absolute; left: 4.1%; top: calc(var(--cw) * 78); width: 51%; }
+.hero__kicker { margin-bottom: calc(var(--cw) * 40); font-size: calc(var(--cw) * 20); }
+.hero__title {
+  margin: 0; font-family: var(--serif); font-weight: 500;
+  font-size: calc(var(--cw) * 110); line-height: 1.06; letter-spacing: -0.03em;
+  color: var(--petrolio-notte);
+}
+.hero__title-italic {
+  display: block; margin-top: calc(var(--cw) * 26); max-width: calc(var(--cw) * 940);
+  font-family: var(--serif); font-weight: 300; font-style: italic;
+  font-size: calc(var(--cw) * 88); line-height: 1.3; letter-spacing: -0.025em;
+  color: var(--petrolio);
+}
+.hero__lead { margin: calc(var(--cw) * 48) 0 0 0; max-width: calc(var(--cw) * 690); font-size: calc(var(--cw) * 29); line-height: 1.55; color: var(--inchiostro-70); }
+.hero__cta-row { margin-top: calc(var(--cw) * 52); }
+.hero__micro { margin: calc(var(--cw) * 26) 0 0 0; font-size: calc(var(--cw) * 19); color: var(--inchiostro-70); }
+
+/* Bottone (comp: 612 x 96) */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+  min-width: calc(var(--cw) * 612); min-height: calc(var(--cw) * 96);
+  padding: calc(var(--cw) * 20) calc(var(--cw) * 56);
+  background: var(--petrolio-verde); color: var(--avorio-alto);
+  font-family: var(--sans); font-weight: 500; font-size: calc(var(--cw) * 20);
+  text-transform: uppercase; letter-spacing: var(--track-caps); text-decoration: none;
+  border: 1px solid var(--petrolio-verde); border-radius: 0; cursor: pointer;
+  transition: background 160ms var(--ease), color 160ms var(--ease), border-color 160ms var(--ease);
+}
+.btn:hover { background: var(--petrolio-notte); border-color: var(--petrolio-notte); color: #f3f6ef; }
+.btn:active { background: var(--petrolio); }
+.btn--compatto { min-width: 0; min-height: 0; padding: 17px 34px; font-size: 13px; }
+.btn--chiaro { background: var(--avorio-alto); color: var(--petrolio-notte); border-color: var(--avorio-alto); }
+.btn--chiaro:hover { background: #ffffff; border-color: #ffffff; color: var(--petrolio-notte); }
+
+/* Arco fotografico (box spec: x60% y136 w40% h1088 assoluto) */
+.hero__arch { position: absolute; margin: 0; left: 60%; top: 0; width: 40%; height: calc(var(--cw) * 1088); }
+.hero__arch-img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Targa */
+.targa { border-top: 1px solid var(--hairline); background: var(--avorio); }
+.targa__list {
+  list-style: none; margin: 0; padding: 0 calc(var(--cw) * 84);
+  height: calc(var(--cw) * 115);
+  display: flex; align-items: center; justify-content: space-between; gap: 18px;
+}
+.targa__item { font-size: calc(var(--cw) * 20); color: var(--petrolio-notte); white-space: nowrap; text-transform: none; letter-spacing: 0.04em; font-weight: 500; }
+.targa__list .sep { width: 1px; height: calc(var(--cw) * 34); background: var(--hairline-forte); flex: none; }
+
+/* ============================================================
+   02 — LE TRE PORTE
+   ============================================================ */
+.porte { background: var(--avorio); padding-block: 110px; }
+.porte__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(20px, 2.5vw, 40px); align-items: stretch; }
+.porta {
+  position: relative;
+  display: flex; flex-direction: column;
+  padding: clamp(56px, 5vw, 84px) clamp(26px, 2.6vw, 44px) clamp(30px, 3vw, 44px);
+  border-radius: 999px 999px 0 0;
+  color: #d8e9da;
+  min-height: 480px;
+}
+.porta--abete { background: var(--verde-abete); }
+.porta--bosco { background: var(--verde-bosco); }
+.porta--petrolio { background: var(--petrolio); }
+.porta__chiave {
+  position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+  width: 34px; height: 26px; background: var(--verde-salvia);
+  clip-path: polygon(14% 0, 86% 0, 100% 100%, 0 100%);
+}
+.porta__titolo { margin: 0 0 18px 0; font-family: var(--serif); font-weight: 400; font-size: clamp(23px, 2vw, 30px); line-height: 1.2; letter-spacing: -0.01em; color: #fdf7f0; text-align: center; }
+.porta__testo { margin: 0; font-size: 15.5px; line-height: 1.75; color: #c9e7d1; }
+.porta__cta {
+  margin-top: auto; padding-top: 30px; align-self: center;
+  color: #fdf7f0; font-size: 12.5px; text-decoration: none;
+  border-bottom: 1px solid rgba(253, 247, 240, 0.55);
+  padding-bottom: 5px;
+  transition: border-color 160ms var(--ease), color 160ms var(--ease);
+}
+.porta__cta:hover { color: #ffffff; border-color: #ffffff; }
+
+/* ============================================================
+   03 — IL PROBLEMA (drench petrolio)
+   ============================================================ */
+.section--scuro { background: var(--petrolio-notte); color: var(--avorio-su-petrolio); padding-block: 110px; }
+.problema__statement {
+  margin: 0; max-width: 21em;
+  font-family: var(--serif); font-weight: 300;
+  font-size: clamp(30px, 3.8vw, 56px); line-height: 1.18; letter-spacing: -0.012em;
+  color: #f6efe3;
+}
+.problema__statement em { font-style: italic; font-weight: 300; color: #b7dcc2; }
+.problema__cols { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 4vw, 72px); margin-top: clamp(40px, 5vw, 72px); }
+.problema__col p { margin: 0 0 1.2em 0; color: var(--secondario-su-petrolio); }
+.problema__col p:last-child { margin-bottom: 0; }
+.problema__col strong { color: #e7f2e4; font-weight: 500; }
+
+/* ============================================================
+   04 — CASI
+   ============================================================ */
+.casi { background: var(--avorio); padding-block: 110px; }
+.casi__grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(20px, 2.5vw, 36px); }
+.caso { border: 1px solid var(--hairline-forte); background: var(--avorio-alto); padding: clamp(26px, 2.6vw, 40px); display: flex; flex-direction: column; gap: 18px; }
+.caso__tipo { font-size: 13.5px; color: var(--petrolio-verde); text-transform: none; letter-spacing: 0.04em; font-weight: 500; }
+.caso__voce { display: grid; grid-template-columns: 128px 1fr; gap: 14px; border-top: 1px solid var(--hairline); padding-top: 14px; }
+.caso__label { font-size: 11px; color: var(--inchiostro-70); padding-top: 3px; }
+.caso__valore { margin: 0; font-size: 15.5px; line-height: 1.6; }
+.caso__esito .caso__valore { font-family: var(--serif); font-weight: 600; font-size: 21px; color: var(--verde-bosco); }
+.casi__nota { margin: clamp(30px, 3.5vw, 48px) 0 0 0; max-width: 64ch; font-size: 14.5px; color: var(--inchiostro-70); border-left: 1px solid var(--hairline-forte); padding-left: 18px; }
+
+/* ============================================================
+   05 — COME FUNZIONA
+   ============================================================ */
+.metodo { background: var(--avorio); border-top: 1px solid var(--hairline); padding-block: 110px; }
+.metodo__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(24px, 2.5vw, 40px); }
+.passo { position: relative; padding-top: 26px; }
+.passo::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--hairline-forte); }
+.passo::after {
+  content: ""; position: absolute; top: -6px; left: 0;
+  width: 18px; height: 13px; background: var(--verde-salvia);
+  clip-path: polygon(14% 0, 86% 0, 100% 100%, 0 100%);
+}
+.passo__numero { font-family: var(--serif); font-weight: 300; font-size: 40px; line-height: 1; color: var(--petrolio-verde); margin: 0 0 12px 0; }
+.passo__titolo { margin: 0 0 10px 0; font-family: var(--serif); font-weight: 600; font-size: 22px; color: var(--petrolio-notte); }
+.passo__testo { margin: 0; font-size: 15px; line-height: 1.7; color: var(--inchiostro-70); }
+
+/* ============================================================
+   06 — CHI LAVORA IL TUO CASO
+   ============================================================ */
+.studio { background: var(--avorio); border-top: 1px solid var(--hairline); padding-block: 110px; }
+.studio__grid { display: grid; grid-template-columns: 5fr 7fr; gap: clamp(36px, 5vw, 90px); align-items: start; }
+.studio__ritratti { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(18px, 2vw, 30px); }
+.cameo { text-align: center; }
+.cameo__arco {
+  position: relative;
+  padding: 18px;
+  border: 1px solid var(--hairline-forte);
+  border-radius: 999px 999px 0 0;
+  aspect-ratio: 3 / 4.1;
+  background:
+    radial-gradient(120% 90% at 50% 0%, rgba(26, 94, 88, 0.16), rgba(26, 94, 88, 0.05) 55%, rgba(26, 94, 88, 0.10)),
+    var(--avorio-alto);
+  display: flex; align-items: center; justify-content: center;
+}
+.cameo__arco svg { width: 34%; height: auto; opacity: 0.5; }
+.cameo__nota { position: absolute; left: 12px; right: 12px; bottom: 16px; font-size: 11.5px; color: var(--inchiostro-70); }
+.cameo__nome { margin: 16px 0 4px 0; font-family: var(--serif); font-weight: 600; font-size: 19px; color: var(--petrolio-notte); }
+.cameo__albo { margin: 0; font-size: 12.5px; color: var(--inchiostro-70); }
+.studio__testo p { margin: 0 0 1.2em 0; color: var(--inchiostro-70); }
+.studio__testo p strong { color: var(--inchiostro); font-weight: 500; }
+.studio__sedi { list-style: none; margin: 26px 0 0 0; padding: 0; display: grid; gap: 12px; }
+.studio__sedi li { display: flex; gap: 14px; align-items: baseline; border-top: 1px solid var(--hairline); padding-top: 12px; }
+.studio__sedi .caps { font-size: 11px; color: var(--petrolio-verde); flex: 0 0 92px; }
+
+/* ============================================================
+   07 — COME LAVORIAMO (drench petrolio profondo)
+   ============================================================ */
+.patti { background: var(--petrolio); color: var(--avorio-su-petrolio); padding-block: 110px; }
+.patti__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(24px, 3vw, 48px); }
+.patto { border-top: 1px solid rgba(240, 235, 223, 0.35); padding-top: 22px; }
+.patto__titolo { margin: 0 0 12px 0; font-family: var(--serif); font-weight: 600; font-size: 21px; line-height: 1.3; color: #f6efe3; }
+.patto__testo { margin: 0; font-size: 15px; line-height: 1.75; color: var(--secondario-su-petrolio); }
+.esclusioni { margin-top: clamp(48px, 6vw, 88px); border: 1px solid rgba(240, 235, 223, 0.35); padding: 44px; }
+.esclusioni__titolo { margin: 0 0 12px 0; font-family: var(--serif); font-weight: 600; font-size: 24px; color: #f6efe3; }
+.esclusioni__testo { margin: 0; max-width: 68ch; color: var(--secondario-su-petrolio); }
+
+/* ============================================================
+   08 — FAQ
+   ============================================================ */
+.faq { background: var(--avorio); padding-block: 110px; }
+.faq__list { border-top: 1px solid var(--hairline-forte); max-width: 860px; padding-top: 10px; }
+.faq__item { border-bottom: 1px solid var(--hairline-forte); }
+.faq__item summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: baseline; justify-content: space-between; gap: 20px;
+  padding: 22px 4px;
+  font-family: var(--serif); font-weight: 600; font-size: clamp(18px, 1.6vw, 22px);
+  color: var(--petrolio-notte);
+  transition: color 160ms var(--ease);
+}
+.faq__item summary::-webkit-details-marker { display: none; }
+.faq__item summary:hover { color: var(--petrolio-verde); }
+.faq__item summary::after { content: "+"; font-family: var(--sans); font-weight: 400; font-size: 22px; color: var(--petrolio-verde); flex: none; transition: transform 180ms var(--ease); }
+.faq__item[open] summary::after { transform: rotate(45deg); }
+.faq__risposta { margin: 0; padding: 0 4px 26px 4px; max-width: 68ch; color: var(--inchiostro-70); }
+
+/* ============================================================
+   09 — VERIFICA (form, drench notte)
+   ============================================================ */
+.verifica { background: var(--petrolio-notte); color: var(--avorio-su-petrolio); padding-block: 110px; }
+.verifica__head { max-width: 720px; margin-bottom: clamp(36px, 4vw, 64px); }
+.verifica__title { color: #f6efe3; }
+.verifica__intro { color: var(--secondario-su-petrolio); }
+.form { max-width: 860px; display: grid; gap: clamp(30px, 3.5vw, 48px); }
+.form fieldset { border: 0; margin: 0; padding: 0; }
+.form legend { font-family: var(--serif); font-weight: 600; font-size: 20px; color: #f6efe3; margin-bottom: 16px; padding: 0; }
+.form legend .num { color: #5fb188; margin-right: 10px; }
+.opzioni { display: flex; flex-wrap: wrap; gap: 10px; }
+.opzione { position: relative; }
+.opzione input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+.opzione span {
+  display: inline-block; padding: 11px 18px;
+  border: 1px solid rgba(240, 235, 223, 0.4); color: var(--avorio-su-petrolio);
+  font-size: 14px; line-height: 1.4; cursor: pointer;
+  transition: border-color 140ms var(--ease), background 140ms var(--ease), color 140ms var(--ease);
+}
+.opzione input:hover + span { border-color: rgba(240, 235, 223, 0.8); }
+.opzione input:checked + span { background: var(--avorio-alto); color: var(--petrolio-notte); border-color: var(--avorio-alto); }
+.opzione input:focus-visible + span { outline: 2px solid var(--verde-salvia); outline-offset: 3px; }
+.campi { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+.campo { display: grid; gap: 8px; }
+.campo label { font-size: 12px; color: var(--secondario-su-petrolio); }
+.campo input, .campo textarea {
+  width: 100%; padding: 14px 16px;
+  background: rgba(253, 247, 244, 0.06);
+  border: 1px solid rgba(240, 235, 223, 0.4);
+  border-radius: 0; color: #fdf7f4;
+  font-family: var(--sans); font-size: 15px;
+  caret-color: var(--verde-salvia);
+  transition: border-color 140ms var(--ease), background 140ms var(--ease);
+}
+.campo input::placeholder, .campo textarea::placeholder { color: rgba(185, 205, 198, 0.75); }
+.campo input:hover, .campo textarea:hover { border-color: rgba(240, 235, 223, 0.7); }
+.campo input:focus, .campo textarea:focus { outline: 2px solid var(--verde-salvia); outline-offset: 2px; background: rgba(253, 247, 244, 0.1); }
+.campo--full { grid-column: 1 / -1; }
+.form__invio { display: grid; gap: 16px; justify-items: start; }
+.form__privacy { margin: 0; font-size: 13px; color: var(--secondario-su-petrolio); max-width: 60ch; }
+.form__nota { margin: 0; font-size: 12px; color: var(--secondario-su-petrolio); }
+
+/* ============================================================
+   10 — ALBA FINALE
+   ============================================================ */
+.alba {
+  position: relative;
+  background: linear-gradient(
+    180deg,
+    var(--petrolio-notte) 0%,
+    var(--petrolio) 42%,
+    var(--verde-abete) 62%,
+    var(--petrolio) 82%,
+    var(--petrolio-notte) 100%
+  );
+  color: #fdf9f2;
+  text-align: center;
+  padding-block: clamp(90px, 12vw, 190px);
+}
+.alba__title {
+  margin: 0 auto; max-width: 16em;
+  font-family: var(--serif); font-weight: 600;
+  font-size: clamp(32px, 4.4vw, 64px); line-height: 1.12; letter-spacing: -0.015em;
+  color: #fdf9f2;
+}
+.alba__testo { margin: 26px auto 0 auto; max-width: 52ch; color: #c5e3cc; }
+.alba__cta { margin-top: clamp(36px, 4vw, 56px); }
+.alba__micro { margin: 18px 0 0 0; font-size: 13px; color: #d6ecd9; }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer { background: var(--avorio); border-top: 1px solid var(--hairline); padding-block: clamp(40px, 5vw, 72px); }
+.footer__grid { display: grid; grid-template-columns: auto 1fr; gap: clamp(30px, 5vw, 90px); align-items: start; }
+.footer__logo img { height: 54px; width: auto; }
+.footer__dati { margin: 0; font-size: 13.5px; line-height: 2; color: var(--inchiostro-70); font-style: normal; }
+.footer__dati strong { color: var(--inchiostro); font-weight: 500; }
+.footer__legal { margin-top: 26px; display: flex; gap: 22px; font-size: 12.5px; }
+
+/* ============================================================
+   Motion (solo con JS; senza JS tutto visibile)
+   ============================================================ */
+html.js .reveal { opacity: 0; transform: translateY(18px); transition: opacity 700ms var(--ease), transform 700ms var(--ease); }
+html.js .reveal.in { opacity: 1; transform: none; }
+html.js .hero__arch { opacity: 0; transition: opacity 900ms var(--ease); }
+html.js .hero__arch.in { opacity: 1; }
+html.js .hero__arch-img { transform: scale(1.03); transform-origin: 50% 20%; transition: transform 1600ms var(--ease); }
+html.js .hero__arch.in .hero__arch-img { transform: scale(1); }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  html.js .reveal, html.js .hero__arch { opacity: 1; transform: none; transition: none; }
+  html.js .hero__arch-img { transform: none; transition: none; }
+}
+
+/* Modalità cattura plates-only (verifica di fase) */
+body.plates-only .nav, body.plates-only .hero__content, body.plates-only .targa { visibility: hidden; }
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media (max-width: 1100px) {
+  .porte__grid { grid-template-columns: 1fr; max-width: 560px; margin-inline: auto; }
+  .porta { min-height: 0; }
+  .casi__grid { grid-template-columns: 1fr; }
+  .metodo__grid { grid-template-columns: 1fr 1fr; }
+  .studio__grid { grid-template-columns: 1fr; }
+  .studio__ritratti { max-width: 520px; }
+  .patti__grid { grid-template-columns: 1fr; max-width: 640px; }
+  .problema__cols { grid-template-columns: 1fr; }
+  .campi { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 900px) {
+  body { font-size: 16px; }
+  .nav { height: auto; padding: 14px 20px; }
+  .nav__logo img { height: 42px; }
+  .nav__meta { gap: 12px; }
+  .nav__meta .caps { font-size: 11px; }
+  .nav__servizio { display: none; }
+  .nav__meta .sep { display: none; }
+
+  .hero__frame { height: auto; display: flex; flex-direction: column; }
+  .hero__content { position: static; width: auto; padding: 44px 20px 0 20px; }
+  .hero__kicker { font-size: 12px; margin-bottom: 18px; }
+  .hero__title { font-size: clamp(38px, 10.5vw, 54px); }
+  .hero__title-italic { font-size: clamp(26px, 7.8vw, 40px); margin-top: 12px; }
+  .hero__lead { font-size: 16px; margin-top: 20px; max-width: none; }
+  .hero__cta-row { margin-top: 26px; }
+  .btn { min-width: 0; min-height: 0; width: 100%; padding: 16px 24px; font-size: 13px; }
+  .btn--compatto { width: auto; }
+  .hero__micro { font-size: 13px; margin-top: 14px; }
+  .hero__arch { position: relative; left: auto; top: auto; width: min(82%, 380px); height: auto; aspect-ratio: 819 / 1088; margin: 40px auto 0 auto; }
+
+  .targa__list { flex-direction: column; align-items: flex-start; gap: 10px; height: auto; padding: 20px; }
+  .targa__list .sep { display: none; }
+  .targa__item { font-size: 12px; white-space: normal; }
+
+  .metodo__grid { grid-template-columns: 1fr; }
+  .caso__voce { grid-template-columns: 1fr; gap: 4px; }
+  .footer__grid { grid-template-columns: 1fr; }
+  .alba__cta .btn { width: auto; }
+}
