@@ -12,33 +12,57 @@
 </head>
 <body>
 
+<div class="grana" aria-hidden="true"></div>
+
 <header class="nav">
   <a class="nav__logo" href="#top" aria-label="centraleLegale — assistenza 24 ore su 24">
     <img src="assets/img/Marchio.Colori.svg" alt="centraleLegale" width="280" height="86">
   </a>
+  <nav class="nav__links" aria-label="Sezioni della pagina">
+    <a href="#situazioni">Le situazioni</a>
+    <a href="#metodo">Come funziona</a>
+    <a href="#studio">Lo studio</a>
+    <a href="#domande">Domande</a>
+  </nav>
   <div class="nav__meta">
-    <span class="caps nav__servizio">Assistenza 24 ore su 24</span>
-    <span class="sep" aria-hidden="true"></span>
     <span class="nav__phone caps segnaposto">[telefono]</span>
+    <a class="nav__cta caps" href="#verifica">Verifica la tua posizione</a>
   </div>
 </header>
+
+<div class="stickybar">
+  <p class="stickybar__brand">centraleLegale <small>— verifica della posizione debitoria</small></p>
+  <div class="stickybar__right">
+    <span class="stickybar__tempo">Risposta entro <span class="segnaposto">[tempo]</span> · Nessun impegno</span>
+    <a class="stickybar__cta" href="#verifica">Verifica la tua posizione</a>
+  </div>
+</div>
 
 <main id="top">
 
   <!-- 01 · HERO -->
   <section class="hero" aria-labelledby="hero-title">
-    <div class="hero__frame">
+    <div class="hero__grid">
       <div class="hero__content">
-        <h1 class="hero__title" id="hero-title">Il problema non è il&nbsp;debito.
-          <em class="hero__title-italic">È capire cosa puoi fare per tornare alla vita che ami.</em>
+        <h1 class="hero__title" id="hero-title">
+          <span class="riga"><span>Il problema</span></span>
+          <span class="riga" style="--d:70ms"><span>non è il debito.</span></span>
+          <span class="riga riga--sub" style="--d:140ms; margin-top:0.28em"><span><em>È capire cosa puoi fare per</em></span></span>
+          <span class="riga riga--sub" style="--d:210ms"><span><em>tornare <span class="evidenzia">alla vita che ami.<svg viewBox="0 0 300 24" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M4 16 C 60 8, 120 20, 176 12 S 280 10, 296 14"/></svg></span></em></span></span>
         </h1>
-        <p class="hero__lead">Analizziamo la tua posizione per poterti affiancare nel percorso. Studio legale specializzato in diritto bancario e procedure di sovraindebitamento. Assistenza in tutta Italia.</p>
-        <p class="hero__cta-row"><a class="btn" href="#verifica">Verifica la tua posizione</a></p>
-        <p class="hero__micro">Risposta entro <span class="segnaposto">[tempo]</span>. Nessun impegno.</p>
+        <p class="hero__lead rv" style="--d:260ms">Analizziamo la tua posizione per poterti affiancare nel percorso. Studio legale specializzato in diritto bancario e procedure di sovraindebitamento. Assistenza in tutta Italia.</p>
+        <p class="hero__cta-row rv" style="--d:330ms">
+          <a class="btn" href="#verifica">Verifica la tua posizione <span class="freccia" aria-hidden="true">→</span></a>
+          <a class="hero__alt" href="#metodo">Leggi come funziona</a>
+        </p>
+        <div class="hero__fatti rv" style="--d:400ms">
+          <p class="f1">Risposta entro <span class="segnaposto">[tempo]</span> · Nessun impegno</p>
+          <p class="f2">Preventivo scritto prima di ogni impegno · Oltre vent’anni di attività · Cantù e Milano</p>
+        </div>
       </div>
-      <figure class="hero__arch">
-        <img class="hero__arch-img" src="assets/plates/arco-foto.webp" alt="Interno di studio legale in verde petrolio — immagine illustrativa in attesa delle fotografie dello studio" width="1638" height="2176">
-        <figcaption class="hero__arch-nota segnaposto">[immagine illustrativa]</figcaption>
+      <figure class="hero__foto">
+        <img class="hero__foto-img" src="assets/img/foto/avvocato-finestra.webp" alt="Avvocata di spalle alla finestra di uno studio verde petrolio, con un atto in mano — immagine illustrativa" width="1365" height="2048">
+        <figcaption class="hero__foto-nota">Immagine illustrativa</figcaption>
       </figure>
     </div>
   </section>
@@ -56,25 +80,26 @@
   </aside>
 
   <!-- 02 · LE TRE PORTE -->
-  <section class="section porte" aria-labelledby="porte-title">
+  <section class="section porte" id="situazioni" aria-labelledby="porte-title">
     <div class="container">
-      <header class="section__head reveal">
-        <h2 class="section__title" id="porte-title">In quale situazione ti trovi?</h2>
+      <header class="section__head section__head--split">
+        <h2 class="section__title rv" id="porte-title">In quale situazione<br><em>ti trovi?</em></h2>
+        <p class="section__intro rv" style="--d:120ms">Tre porte, tre percorsi diversi. In tutti e tre i casi il tempo conta: alcune tutele hanno termini precisi.</p>
       </header>
       <div class="porte__grid">
-        <article class="porta porta--abete reveal">
+        <article class="porta porta--abete rv">
           <span class="porta__chiave" aria-hidden="true"></span>
           <h3 class="porta__titolo">Hai ricevuto un decreto ingiuntivo o un atto di pignoramento</h3>
           <p class="porta__testo">Un decreto ingiuntivo si può opporre, ma il termine è di <strong class="num">40 giorni</strong> dalla notifica. In molti casi chi chiede il pagamento è una società che ha acquistato il credito dalla banca e non è in grado di dimostrare di esserne il titolare. Quando quella prova manca, il decreto può essere revocato e l’esecuzione sospesa.</p>
           <a class="porta__cta caps" href="#verifica">Verifica la tua posizione</a>
         </article>
-        <article class="porta porta--bosco reveal">
+        <article class="porta porta--bosco rv" style="--d:130ms">
           <span class="porta__chiave" aria-hidden="true"></span>
           <h3 class="porta__titolo">I debiti sono più di quello che riesci a pagare</h3>
           <p class="porta__testo">Il Codice della Crisi prevede procedure che permettono di ristrutturare l’intera posizione debitoria in un piano sostenibile su tre anni e, in presenza dei requisiti di legge, di ottenere l’esdebitazione del residuo. Vale per tutti i debiti insieme: banche, finanziarie, Agenzia delle Entrate, comuni, sanzioni amministrative.</p>
           <a class="porta__cta caps" href="#verifica">Verifica la tua posizione</a>
         </article>
-        <article class="porta porta--petrolio reveal">
+        <article class="porta porta--petrolio rv" style="--d:260ms">
           <span class="porta__chiave" aria-hidden="true"></span>
           <h3 class="porta__titolo">Hai un’impresa in difficoltà</h3>
           <p class="porta__testo">Quando l’esposizione dell’azienda comincia a toccare il patrimonio personale, le procedure previste dal Codice della Crisi vanno attivate entro finestre temporali precise. Ogni mese di attesa riduce le soluzioni disponibili.</p>
@@ -84,15 +109,30 @@
     </div>
   </section>
 
-  <!-- 03 · IL PROBLEMA -->
-  <section class="section section--scuro" aria-labelledby="problema-title">
+  <!-- 03 · STATEMENT → DARK -->
+  <section class="statement" aria-hidden="false">
     <div class="container">
-      <h2 class="problema__statement reveal" id="problema-title">Il problema non è solo il debito… <em>ma il non sapere cosa si può ancora fare.</em></h2>
-      <div class="problema__cols">
-        <div class="problema__col reveal">
+      <p class="statement__testo">
+        <span class="riga"><span>Il problema non è solo il debito.</span></span>
+        <span class="riga" style="--d:90ms"><span><strong>È non sapere</strong> cosa si può</span></span>
+        <span class="riga" style="--d:180ms"><span>ancora fare.</span></span>
+      </p>
+    </div>
+    <div class="statement__vignetta" aria-hidden="true"></div>
+  </section>
+
+  <section class="section section--scuro problema" aria-labelledby="problema-title">
+    <div class="container">
+      <h2 class="visually-hidden" id="problema-title">Perché succede</h2>
+      <div class="problema__grid">
+        <figure class="problema__figura rv">
+          <img src="assets/img/foto/scrivania-atti.webp" alt="Scrivania con un fascicolo aperto, penna stilografica e tazzina di caffè — immagine illustrativa" width="1536" height="1152">
+          <figcaption>Ogni verifica comincia dai documenti: contratti, estratti conto, atti ricevuti. Immagine illustrativa.</figcaption>
+        </figure>
+        <div class="problema__col rv" style="--d:110ms">
           <p><strong>Quando arriva il primo atto giudiziario la situazione cambia natura.</strong> Non è più una questione di soldi: diventa una questione di termini, scadenze e strumenti processuali. E le informazioni che si trovano online sono quasi sempre generiche, o anche errate.</p>
         </div>
-        <div class="problema__col reveal">
+        <div class="problema__col rv" style="--d:220ms">
           <p>La maggior parte delle persone che incontriamo non sapeva che le procedure di composizione della crisi esistessero. Alcune ce lo hanno detto dopo anni passati a pagare rate che non avrebbero dovuto pagare per intero.</p>
           <p><strong>Non è una loro mancanza:</strong> sono materie tecniche che nemmeno tutti gli avvocati trattano.</p>
         </div>
@@ -100,88 +140,122 @@
     </div>
   </section>
 
+  <!-- BANDA FOTOGRAFICA -->
+  <div class="fotobanda" role="img" aria-label="Consulenza attorno a un tavolo in una sala riunioni verde petrolio — immagine illustrativa">
+    <img class="fotobanda__img" src="assets/img/foto/riunione.webp" alt="" data-parallax="0.16" width="2048" height="878">
+    <p class="fotobanda__nota">Immagine illustrativa</p>
+  </div>
+
   <!-- 04 · CASI -->
   <section class="section casi" aria-labelledby="casi-title">
-    <div class="container">
-      <header class="section__head reveal">
-        <h2 class="section__title" id="casi-title">Alcuni casi che abbiamo seguito</h2>
-        <p class="section__intro">Riportiamo gli estremi delle decisioni. I dati dei clienti sono omessi per riservatezza.</p>
-      </header>
-      <div class="casi__grid">
-        <article class="caso reveal">
-          <p class="caso__tipo caps">Contenzioso bancario</p>
+    <div class="container casi__grid">
+      <div class="casi__sticky">
+        <h2 class="section__title rv" id="casi-title">Alcuni casi che<br><em>abbiamo seguito</em></h2>
+        <p class="rv" style="--d:100ms">Riportiamo gli estremi delle decisioni. I dati dei clienti sono omessi per riservatezza.</p>
+        <p class="casi__nota rv" style="--d:180ms">Ogni caso è diverso e nessun risultato può essere garantito in anticipo. Questi sono procedimenti realmente conclusi.</p>
+      </div>
+      <div class="casi__list">
+        <article class="caso rv">
+          <div class="caso__testata"><h3 class="caso__tipo">Contenzioso bancario</h3><span class="caso__tag caps num">Caso 01</span></div>
           <div class="caso__voce"><span class="caso__label caps">Situazione</span><p class="caso__valore segnaposto">[Decreto ingiuntivo da 84.000 euro notificato da una società cessionaria del credito]</p></div>
           <div class="caso__voce"><span class="caso__label caps">Cosa abbiamo fatto</span><p class="caso__valore segnaposto">[Contestata la titolarità del credito. La società non ha prodotto il contratto di acquisto]</p></div>
           <div class="caso__voce caso__esito"><span class="caso__label caps">Esito</span><p class="caso__valore segnaposto">[Decreto revocato]</p></div>
           <div class="caso__voce"><span class="caso__label caps">Riferimento</span><p class="caso__valore segnaposto">[Tribunale di ___, sentenza n. ___ del __/__/____]</p></div>
         </article>
-        <article class="caso reveal">
-          <p class="caso__tipo caps">Opposizione a decreto ingiuntivo</p>
+        <article class="caso rv" style="--d:80ms">
+          <div class="caso__testata"><h3 class="caso__tipo">Opposizione a decreto ingiuntivo</h3><span class="caso__tag caps num">Caso 02</span></div>
           <div class="caso__voce"><span class="caso__label caps">Situazione</span><p class="caso__valore segnaposto">[Da compilare con il caso fornito dallo studio]</p></div>
           <div class="caso__voce"><span class="caso__label caps">Cosa abbiamo fatto</span><p class="caso__valore segnaposto">[Da compilare]</p></div>
           <div class="caso__voce caso__esito"><span class="caso__label caps">Esito</span><p class="caso__valore segnaposto">[Da compilare]</p></div>
           <div class="caso__voce"><span class="caso__label caps">Riferimento</span><p class="caso__valore segnaposto">[Tribunale di ___, sentenza n. ___ del __/__/____]</p></div>
         </article>
-        <article class="caso reveal">
-          <p class="caso__tipo caps">Sovraindebitamento con esdebitazione</p>
+        <article class="caso rv" style="--d:80ms">
+          <div class="caso__testata"><h3 class="caso__tipo">Sovraindebitamento con esdebitazione</h3><span class="caso__tag caps num">Caso 03</span></div>
           <div class="caso__voce"><span class="caso__label caps">Situazione</span><p class="caso__valore segnaposto">[Da compilare con il caso fornito dallo studio]</p></div>
           <div class="caso__voce"><span class="caso__label caps">Cosa abbiamo fatto</span><p class="caso__valore segnaposto">[Da compilare]</p></div>
           <div class="caso__voce caso__esito"><span class="caso__label caps">Esito</span><p class="caso__valore segnaposto">[Da compilare]</p></div>
           <div class="caso__voce"><span class="caso__label caps">Riferimento</span><p class="caso__valore segnaposto">[Tribunale di ___, decreto n. ___ del __/__/____]</p></div>
         </article>
-        <article class="caso reveal">
-          <p class="caso__tipo caps">Crisi d’impresa</p>
+        <article class="caso rv" style="--d:80ms">
+          <div class="caso__testata"><h3 class="caso__tipo">Crisi d’impresa</h3><span class="caso__tag caps num">Caso 04</span></div>
           <div class="caso__voce"><span class="caso__label caps">Situazione</span><p class="caso__valore segnaposto">[Da compilare con il caso fornito dallo studio]</p></div>
           <div class="caso__voce"><span class="caso__label caps">Cosa abbiamo fatto</span><p class="caso__valore segnaposto">[Da compilare]</p></div>
           <div class="caso__voce caso__esito"><span class="caso__label caps">Esito</span><p class="caso__valore segnaposto">[Da compilare]</p></div>
           <div class="caso__voce"><span class="caso__label caps">Riferimento</span><p class="caso__valore segnaposto">[Tribunale di ___, sentenza n. ___ del __/__/____]</p></div>
         </article>
       </div>
-      <p class="casi__nota reveal">Ogni caso è diverso e nessun risultato può essere garantito in anticipo. Questi sono procedimenti realmente conclusi.</p>
     </div>
   </section>
 
-  <!-- 05 · COME FUNZIONA -->
-  <section class="section metodo" aria-labelledby="metodo-title">
+  <!-- 05 · METODO -->
+  <section class="section metodo" id="metodo" aria-labelledby="metodo-title">
     <div class="container">
-      <header class="section__head reveal">
-        <h2 class="section__title" id="metodo-title">Come funziona</h2>
+      <header class="section__head section__head--split">
+        <h2 class="section__title rv" id="metodo-title">Come <em>funziona</em></h2>
+        <p class="section__intro rv" style="--d:120ms">Quattro passi, dal racconto della tua situazione alla firma del mandato. Ogni passo finisce con qualcosa di concreto in mano a te.</p>
       </header>
       <div class="metodo__grid">
-        <article class="passo reveal">
+        <article class="passo rv">
           <p class="passo__numero num">1</p>
           <h3 class="passo__titolo">La verifica</h3>
           <p class="passo__testo">Ci racconti la tua situazione dal modulo. Se necessario ti chiediamo i documenti principali: contratti, estratti conto, atti ricevuti.</p>
         </article>
-        <article class="passo reveal">
+        <article class="passo rv" style="--d:110ms">
           <p class="passo__numero num">2</p>
           <h3 class="passo__titolo">L’analisi</h3>
           <p class="passo__testo">Analizziamo la posizione. Sui contenziosi bancari ci avvaliamo di consulenti economici che esaminano conti correnti e finanziamenti per verificare la corretta applicazione degli interessi e la legittimità delle commissioni.</p>
         </article>
-        <article class="passo reveal">
+        <article class="passo rv" style="--d:220ms">
           <p class="passo__numero num">3</p>
           <h3 class="passo__titolo">La risposta</h3>
-          <p class="passo__testo">Ti comunichiamo per iscritto cosa si può fare, con quali tempi e con quali costi. Se riteniamo che non ci siano margini, te lo diciamo.</p>
+          <p class="passo__testo">Ti comunichiamo cosa si può fare, con quali tempi e con quali costi. Se riteniamo che non ci siano margini, te lo diciamo.</p>
+          <p class="passo__ricevi"><span class="caps">Ricevi</span> una risposta scritta, con tempi e costi</p>
         </article>
-        <article class="passo reveal">
+        <article class="passo rv" style="--d:330ms">
           <p class="passo__numero num">4</p>
           <h3 class="passo__titolo">L’incarico</h3>
           <p class="passo__testo">Se decidi di procedere, firmiamo il mandato e ci occupiamo noi della procedura.</p>
+          <p class="passo__ricevi"><span class="caps">Ricevi</span> un preventivo scritto, prima della firma</p>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- 06 · CHI LAVORA IL TUO CASO -->
-  <section class="section studio" aria-labelledby="studio-title">
+  <!-- OFFERTA -->
+  <section class="section offerta" aria-labelledby="offerta-title">
     <div class="container">
-      <header class="section__head reveal">
-        <h2 class="section__title" id="studio-title">Chi lavora il tuo caso</h2>
-        <p class="section__intro"><span class="segnaposto">[Nome del marchio]</span> è il servizio di <span class="segnaposto">[ragione sociale]</span>. Le pratiche sono seguite dallo Studio Ventura Associati.</p>
+      <div class="offerta__box rv">
+        <figure class="offerta__figura">
+          <img src="assets/img/foto/stretta-mano.webp" alt="Un fascicolo firmato passa di mano sopra una scrivania — immagine illustrativa" width="1536" height="1152">
+          <figcaption>Immagine illustrativa</figcaption>
+        </figure>
+        <div class="offerta__lista">
+          <h3 id="offerta-title">La verifica della tua posizione</h3>
+          <ul>
+            <li>Analisi degli atti che hai ricevuto</li>
+            <li>Controllo di termini e scadenze in corso</li>
+            <li>Esame di contratti ed estratti conto, con consulenti economici dove serve</li>
+            <li>Risposta con cosa si può fare, tempi e costi</li>
+          </ul>
+        </div>
+        <div class="offerta__azione">
+          <a class="btn" href="#verifica">Verifica la tua posizione <span class="freccia" aria-hidden="true">→</span></a>
+          <p class="offerta__garanzia"><strong>Se riteniamo che non ci siano margini, te lo diciamo.</strong> Nessun impegno e nessun costo nascosto: il preventivo è scritto e precede qualsiasi firma.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 · STUDIO -->
+  <section class="section studio" id="studio" aria-labelledby="studio-title">
+    <div class="container">
+      <header class="section__head section__head--split">
+        <h2 class="section__title rv" id="studio-title">Chi lavora <em>il tuo caso</em></h2>
+        <p class="section__intro rv" style="--d:120ms"><span class="segnaposto">[Nome del marchio]</span> è il servizio di <span class="segnaposto">[ragione sociale]</span>. Le pratiche sono seguite dallo Studio Ventura Associati.</p>
       </header>
       <div class="studio__grid">
         <div class="studio__ritratti">
-          <figure class="cameo reveal">
+          <figure class="cameo rv">
             <div class="cameo__arco">
               <svg viewBox="0 0 60 74" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <path d="M6 70 V32 A24 24 0 0 1 54 32 V70" stroke="#1a5e58" stroke-width="2.5"/>
@@ -192,7 +266,7 @@
             <p class="cameo__nome">Avv. Katia Ventura</p>
             <p class="cameo__albo segnaposto">[Iscritta all’Ordine degli Avvocati di ___, n. ___]</p>
           </figure>
-          <figure class="cameo reveal">
+          <figure class="cameo rv" style="--d:110ms">
             <div class="cameo__arco">
               <svg viewBox="0 0 60 74" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <path d="M6 70 V32 A24 24 0 0 1 54 32 V70" stroke="#1a5e58" stroke-width="2.5"/>
@@ -204,7 +278,7 @@
             <p class="cameo__albo segnaposto">[Iscritto all’Ordine degli Avvocati di ___, n. ___]</p>
           </figure>
         </div>
-        <div class="studio__testo reveal">
+        <div class="studio__testo rv" style="--d:160ms">
           <p><strong>Lo studio è attivo da oltre vent’anni</strong> ed è specializzato in diritto bancario e finanziario e nelle procedure di composizione della crisi da sovraindebitamento.</p>
           <p>Riceviamo su appuntamento e lavoriamo in videochiamata con clienti in tutta Italia e all’estero.</p>
           <ul class="studio__sedi">
@@ -213,31 +287,39 @@
             <li><span class="caps">Ovunque</span><span>Consulenze in videochiamata, in tutta Italia e all’estero</span></li>
           </ul>
         </div>
+        <figure class="studio__figura rv" style="--d:240ms">
+          <img src="assets/img/foto/biblioteca.webp" alt="Scaffali di una biblioteca giuridica con tomi rilegati in pelle — immagine illustrativa" width="1536" height="2048">
+          <figcaption>La biblioteca dello studio. Immagine illustrativa.</figcaption>
+        </figure>
       </div>
     </div>
   </section>
 
-  <!-- 07 · COME LAVORIAMO -->
-  <section class="section patti section--scuro" aria-labelledby="patti-title">
+  <!-- 07 · PATTI -->
+  <section class="section patti" aria-labelledby="patti-title">
     <div class="container">
-      <header class="section__head reveal">
-        <h2 class="section__title" id="patti-title" style="color:#f6efe3">Come lavoriamo, e cosa non faremo mai</h2>
+      <header class="section__head">
+        <h2 class="section__title rv" id="patti-title" style="color:#f0ebdd">Come lavoriamo,<br><em>e cosa non faremo mai</em></h2>
       </header>
-      <div class="patti__grid">
-        <article class="patto reveal">
-          <h3 class="patto__titolo">Non promettiamo percentuali di riduzione.</h3>
-          <p class="patto__testo">Nessuno può sapere in anticipo di quanto si ridurrà un debito. Chi lo garantisce prima di aver visto i documenti non sta dicendo la verità.</p>
-        </article>
-        <article class="patto reveal">
-          <h3 class="patto__titolo">I costi te li diciamo prima.</h3>
-          <p class="patto__testo">Ricevi un preventivo scritto prima di firmare qualsiasi cosa. <span class="segnaposto">[La prima verifica ha un costo di ___ euro / La prima verifica è senza costi]</span></p>
-        </article>
-        <article class="patto reveal">
-          <h3 class="patto__titolo">I pagamenti ai creditori li fai tu, direttamente.</h3>
-          <p class="patto__testo">Non riceviamo somme destinate ai tuoi creditori.</p>
-        </article>
+      <div class="patti__cols">
+        <div class="patti__col rv">
+          <h3>Cosa facciamo sempre</h3>
+          <ul>
+            <li><span class="patti__segno" aria-hidden="true">✓</span><span><strong>Preventivo scritto prima di firmare qualsiasi cosa.</strong> <span class="segnaposto">[La prima verifica ha un costo di ___ euro / La prima verifica è senza costi]</span></span></li>
+            <li><span class="patti__segno" aria-hidden="true">✓</span><span><strong>I pagamenti ai creditori li fai tu, direttamente.</strong> Non riceviamo somme destinate ai tuoi creditori.</span></li>
+            <li><span class="patti__segno" aria-hidden="true">✓</span><span><strong>Se non ci sono margini, te lo diciamo.</strong> Per iscritto, dopo l’analisi.</span></li>
+          </ul>
+        </div>
+        <div class="patti__col patti__col--no rv" style="--d:140ms">
+          <h3>Cosa non facciamo mai</h3>
+          <ul>
+            <li><span class="patti__segno" aria-hidden="true">✕</span><span><strong>Promettere percentuali di riduzione.</strong> Nessuno può sapere in anticipo di quanto si ridurrà un debito: chi lo garantisce prima di aver visto i documenti non sta dicendo la verità.</span></li>
+            <li><span class="patti__segno" aria-hidden="true">✕</span><span><strong>Farci consegnare somme destinate ai creditori.</strong></span></li>
+            <li><span class="patti__segno" aria-hidden="true">✕</span><span><strong>Trattare materie fuori dalla nostra specializzazione.</strong></span></li>
+          </ul>
+        </div>
       </div>
-      <div class="esclusioni reveal">
+      <div class="esclusioni rv">
         <h3 class="esclusioni__titolo">Di cosa non ci occupiamo</h3>
         <p class="esclusioni__testo">Per poter essere davvero specializzati abbiamo scelto di non trattare: <span class="segnaposto">[elenco delle materie escluse, da confermare con lo studio]</span>. Se la tua situazione rientra in questi ambiti non siamo lo studio adatto, e preferiamo dirtelo subito.</p>
       </div>
@@ -245,12 +327,12 @@
   </section>
 
   <!-- 08 · FAQ -->
-  <section class="section faq" aria-labelledby="faq-title">
-    <div class="container">
-      <header class="section__head reveal">
-        <h2 class="section__title" id="faq-title">Le domande che riceviamo più spesso</h2>
-      </header>
-      <div class="faq__list reveal">
+  <section class="section faq" id="domande" aria-labelledby="faq-title">
+    <div class="container faq__grid">
+      <div class="faq__sticky">
+        <h2 class="section__title rv" id="faq-title">Le domande che<br><em>riceviamo più spesso</em></h2>
+      </div>
+      <div class="faq__list rv" style="--d:120ms">
         <details class="faq__item">
           <summary>Quanto costa?</summary>
           <p class="faq__risposta"><span class="segnaposto">[Da completare]</span>. Il preventivo è sempre scritto e precede qualsiasi impegno.</p>
@@ -282,70 +364,81 @@
   <!-- 09 · VERIFICA -->
   <section class="section verifica" id="verifica" aria-labelledby="verifica-title">
     <div class="container">
-      <header class="verifica__head reveal">
-        <h2 class="section__title verifica__title" id="verifica-title">Verifica la tua posizione</h2>
-        <p class="section__intro verifica__intro">Rispondi a cinque domande. Ti ricontattiamo entro <span class="segnaposto">[tempo]</span> con una prima valutazione.</p>
+      <header class="verifica__head">
+        <h2 class="section__title rv" id="verifica-title">Verifica la tua <em>posizione</em></h2>
+        <p class="section__intro rv" style="--d:110ms">Rispondi a cinque domande. Ti ricontattiamo entro <span class="segnaposto">[tempo]</span> con una prima valutazione. Nessun impegno.</p>
       </header>
-      <form class="form reveal" action="#verifica">
-        <fieldset>
-          <legend><span class="num">1.</span> Che tipo di debito hai?</legend>
-          <div class="opzioni">
-            <label class="opzione"><input type="radio" name="tipo-debito" value="Banca o finanziaria"><span>Banca o finanziaria</span></label>
-            <label class="opzione"><input type="radio" name="tipo-debito" value="Agenzia delle Entrate o enti pubblici"><span>Agenzia delle Entrate o enti pubblici</span></label>
-            <label class="opzione"><input type="radio" name="tipo-debito" value="Fornitori"><span>Fornitori</span></label>
-            <label class="opzione"><input type="radio" name="tipo-debito" value="Più di uno"><span>Più di uno</span></label>
+      <div class="verifica__strumento rv" style="--d:180ms">
+        <form class="form" id="form-verifica" action="#verifica">
+          <div class="wizard__stato" hidden>
+            <span class="wizard__conta num">Domanda <b>1</b> di 5</span>
+            <span class="wizard__barra" aria-hidden="true"><i></i></span>
           </div>
-        </fieldset>
-        <fieldset>
-          <legend><span class="num">2.</span> A che punto sei?</legend>
-          <div class="opzioni">
-            <label class="opzione"><input type="radio" name="punto" value="Solo solleciti"><span>Solo solleciti</span></label>
-            <label class="opzione"><input type="radio" name="punto" value="Ho ricevuto un decreto ingiuntivo"><span>Ho ricevuto un decreto ingiuntivo</span></label>
-            <label class="opzione"><input type="radio" name="punto" value="È in corso un pignoramento"><span>È in corso un pignoramento</span></label>
-            <label class="opzione"><input type="radio" name="punto" value="Non lo so"><span>Non lo so</span></label>
+          <fieldset data-step="1">
+            <legend><span class="num">1.</span> Che tipo di debito hai?</legend>
+            <div class="opzioni">
+              <label class="opzione"><input type="radio" name="tipo-debito" value="Banca o finanziaria"><span>Banca o finanziaria</span></label>
+              <label class="opzione"><input type="radio" name="tipo-debito" value="Agenzia delle Entrate o enti pubblici"><span>Agenzia delle Entrate o enti pubblici</span></label>
+              <label class="opzione"><input type="radio" name="tipo-debito" value="Fornitori"><span>Fornitori</span></label>
+              <label class="opzione"><input type="radio" name="tipo-debito" value="Più di uno"><span>Più di uno</span></label>
+            </div>
+          </fieldset>
+          <fieldset data-step="2">
+            <legend><span class="num">2.</span> A che punto sei?</legend>
+            <div class="opzioni">
+              <label class="opzione"><input type="radio" name="punto" value="Solo solleciti"><span>Solo solleciti</span></label>
+              <label class="opzione"><input type="radio" name="punto" value="Ho ricevuto un decreto ingiuntivo"><span>Ho ricevuto un decreto ingiuntivo</span></label>
+              <label class="opzione"><input type="radio" name="punto" value="È in corso un pignoramento"><span>È in corso un pignoramento</span></label>
+              <label class="opzione"><input type="radio" name="punto" value="Non lo so"><span>Non lo so</span></label>
+            </div>
+          </fieldset>
+          <fieldset data-step="3">
+            <legend><span class="num">3.</span> Importo indicativo</legend>
+            <div class="opzioni">
+              <label class="opzione"><input type="radio" name="importo" value="Fino a 30.000 euro"><span class="num">Fino a 30.000 euro</span></label>
+              <label class="opzione"><input type="radio" name="importo" value="Da 30.000 a 100.000"><span class="num">Da 30.000 a 100.000</span></label>
+              <label class="opzione"><input type="radio" name="importo" value="Da 100.000 a 300.000"><span class="num">Da 100.000 a 300.000</span></label>
+              <label class="opzione"><input type="radio" name="importo" value="Oltre 300.000"><span class="num">Oltre 300.000</span></label>
+            </div>
+          </fieldset>
+          <fieldset data-step="4">
+            <legend><span class="num">4.</span> Sei un privato o un’impresa?</legend>
+            <div class="opzioni">
+              <label class="opzione"><input type="radio" name="soggetto" value="Privato"><span>Privato</span></label>
+              <label class="opzione"><input type="radio" name="soggetto" value="Impresa"><span>Impresa</span></label>
+            </div>
+          </fieldset>
+          <fieldset data-step="5">
+            <legend><span class="num">5.</span> Come ti ricontattiamo?</legend>
+            <div class="campi">
+              <div class="campo"><label for="f-nome">Nome</label><input id="f-nome" name="nome" type="text" autocomplete="name" required></div>
+              <div class="campo"><label for="f-telefono">Telefono</label><input id="f-telefono" name="telefono" type="tel" autocomplete="tel" required></div>
+              <div class="campo"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+              <div class="campo campo--full"><label for="f-note">Descrivi brevemente la situazione (facoltativo)</label><textarea id="f-note" name="situazione" rows="4"></textarea></div>
+            </div>
+          </fieldset>
+          <div class="wizard__nav" hidden>
+            <button class="wizard__indietro" type="button" data-dir="-1">Indietro</button>
+            <button class="btn" type="button" data-dir="1">Avanti <span class="freccia" aria-hidden="true">→</span></button>
           </div>
-        </fieldset>
-        <fieldset>
-          <legend><span class="num">3.</span> Importo indicativo</legend>
-          <div class="opzioni">
-            <label class="opzione"><input type="radio" name="importo" value="Fino a 30.000 euro"><span class="num">Fino a 30.000 euro</span></label>
-            <label class="opzione"><input type="radio" name="importo" value="Da 30.000 a 100.000"><span class="num">Da 30.000 a 100.000</span></label>
-            <label class="opzione"><input type="radio" name="importo" value="Da 100.000 a 300.000"><span class="num">Da 100.000 a 300.000</span></label>
-            <label class="opzione"><input type="radio" name="importo" value="Oltre 300.000"><span class="num">Oltre 300.000</span></label>
+          <div class="form__invio">
+            <button class="btn" type="submit" disabled aria-describedby="nota-modulo">Invia la richiesta</button>
+            <p class="form__privacy">I dati sono trattati secondo l’informativa privacy e coperti da segreto professionale.</p>
+            <p class="form__nota segnaposto" id="nota-modulo">[Modulo in attivazione: si abilita quando il cliente fornisce l’email o il gestionale dedicati. I campi sono dimostrativi.]</p>
+            <p class="form__nota"><a id="toggle-form" href="?form=step#verifica">Preferisci una domanda alla volta? Prova la versione guidata</a></p>
           </div>
-        </fieldset>
-        <fieldset>
-          <legend><span class="num">4.</span> Sei un privato o un’impresa?</legend>
-          <div class="opzioni">
-            <label class="opzione"><input type="radio" name="soggetto" value="Privato"><span>Privato</span></label>
-            <label class="opzione"><input type="radio" name="soggetto" value="Impresa"><span>Impresa</span></label>
-          </div>
-        </fieldset>
-        <fieldset>
-          <legend><span class="num">5.</span> Come ti ricontattiamo?</legend>
-          <div class="campi">
-            <div class="campo"><label for="f-nome">Nome</label><input id="f-nome" name="nome" type="text" autocomplete="name" required></div>
-            <div class="campo"><label for="f-telefono">Telefono</label><input id="f-telefono" name="telefono" type="tel" autocomplete="tel" required></div>
-            <div class="campo"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
-            <div class="campo campo--full"><label for="f-note">Descrivi brevemente la situazione (facoltativo)</label><textarea id="f-note" name="situazione" rows="4"></textarea></div>
-          </div>
-        </fieldset>
-        <div class="form__invio">
-          <button class="btn btn--chiaro btn--compatto" type="submit" disabled aria-describedby="nota-modulo">Invia la richiesta</button>
-          <p class="form__privacy">I dati sono trattati secondo l’informativa privacy e coperti da segreto professionale.</p>
-          <p class="form__nota segnaposto" id="nota-modulo">[Modulo in attivazione: si abilita quando il cliente fornisce l’email o il gestionale dedicati. I campi sono dimostrativi.]</p>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   </section>
 
   <!-- 10 · ALBA -->
   <section class="alba" aria-labelledby="alba-title">
     <div class="container">
-      <h2 class="alba__title reveal" id="alba-title">Prima si interviene, più strumenti ci sono.</h2>
-      <p class="alba__testo reveal">Le procedure hanno termini precisi e alcune possibilità si esauriscono con il passare del tempo. Una verifica non impegna a nulla, ma ti dice con esattezza a che punto sei.</p>
-      <p class="alba__cta reveal"><a class="btn btn--chiaro btn--compatto" href="#verifica">Verifica la tua posizione</a></p>
-      <p class="alba__micro reveal">Risposta entro <span class="segnaposto">[tempo]</span>. Nessun impegno.</p>
+      <h2 class="alba__title rv" id="alba-title">Prima si interviene, più strumenti ci sono.</h2>
+      <p class="alba__testo rv" style="--d:110ms">Le procedure hanno termini precisi e alcune possibilità si esauriscono con il passare del tempo. Una verifica non impegna a nulla, ma ti dice con esattezza a che punto sei.</p>
+      <p class="alba__cta rv" style="--d:220ms"><a class="btn btn--chiaro" href="#verifica">Verifica la tua posizione <span class="freccia" aria-hidden="true">→</span></a></p>
+      <p class="alba__micro rv" style="--d:300ms">Risposta entro <span class="segnaposto">[tempo]</span>. Nessun impegno.</p>
     </div>
   </section>
 
@@ -361,6 +454,7 @@
       <strong>Studio Ventura Associati</strong> — Via Giulio Carcano 14, Cantù (CO) · Via Monte Napoleone 8, Milano<br>
       Avv. Katia Ventura, Ordine degli Avvocati di <span class="segnaposto">[___]</span>, n. <span class="segnaposto">[___]</span> ·
       Avv. Mirko Ventura, Ordine degli Avvocati di <span class="segnaposto">[___]</span>, n. <span class="segnaposto">[___]</span><br>
+      Le fotografie di ambienti e persone in questa pagina sono immagini illustrative.<br>
       <span class="segnaposto">[Telefono]</span> · <span class="segnaposto">[Email]</span>
       <span class="footer__legal">
         <span class="segnaposto">[Privacy policy]</span>
@@ -372,16 +466,89 @@
 
 <script>
 (function () {
-  var all = document.querySelectorAll('.reveal, .hero__arch');
+  var motionOk = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Reveal on scroll */
+  var all = document.querySelectorAll('.rv, .riga, .evidenzia, .hero__foto-img, .hero__arco-segno');
   function revealAll() { all.forEach(function (el) { el.classList.add('in'); }); }
-  if (!('IntersectionObserver' in window)) { revealAll(); return; }
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+  if (!('IntersectionObserver' in window)) { revealAll(); }
+  else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    all.forEach(function (el) { io.observe(el); });
+    setTimeout(revealAll, 1800);
+  }
+
+  /* Barra sticky dopo l'hero */
+  var hero = document.querySelector('.hero');
+  var bar = document.querySelector('.stickybar');
+  if (hero && bar && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      bar.classList.toggle('in', !entries[0].isIntersecting);
+    }, { rootMargin: '-80px 0px 0px 0px' }).observe(hero);
+  }
+
+  /* Parallax leggero (solo trasform, rAF-throttled) */
+  var par = document.querySelectorAll('[data-parallax]');
+  if (par.length && motionOk) {
+    var ticking = false;
+    function frame() {
+      ticking = false;
+      var vh = window.innerHeight;
+      par.forEach(function (el) {
+        var r = el.parentElement.getBoundingClientRect();
+        if (r.bottom < 0 || r.top > vh) return;
+        var k = parseFloat(el.dataset.parallax) || 0.15;
+        var p = (r.top + r.height / 2 - vh / 2) / vh;
+        el.style.transform = 'translateY(' + (p * k * -100).toFixed(2) + 'px)';
+      });
+    }
+    addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }, { passive: true });
+    frame();
+  }
+
+  /* Modalità wizard: ?form=step */
+  var form = document.getElementById('form-verifica');
+  var isStep = new URLSearchParams(location.search).get('form') === 'step';
+  var toggle = document.getElementById('toggle-form');
+  if (toggle && isStep) { toggle.textContent = 'Preferisci vedere tutte le domande insieme? Torna alla versione completa'; toggle.href = './#verifica'; }
+  if (form && isStep) {
+    form.classList.add('form--step');
+    var steps = [].slice.call(form.querySelectorAll('fieldset'));
+    var stato = form.querySelector('.wizard__stato');
+    var nav = form.querySelector('.wizard__nav');
+    var invio = form.querySelector('.form__invio');
+    var conta = form.querySelector('.wizard__conta b');
+    var barra = form.querySelector('.wizard__barra i');
+    var avanti = nav.querySelector('[data-dir="1"]');
+    var indietro = nav.querySelector('[data-dir="-1"]');
+    var i = 0;
+    stato.hidden = false; nav.hidden = false;
+    function mostra(n, scorri) {
+      i = Math.max(0, Math.min(steps.length - 1, n));
+      steps.forEach(function (fs, j) { fs.classList.toggle('attivo', j === i); });
+      conta.textContent = i + 1;
+      barra.style.transform = 'scaleX(' + ((i + 1) / steps.length) + ')';
+      indietro.disabled = i === 0;
+      avanti.style.display = i === steps.length - 1 ? 'none' : '';
+      invio.style.display = i === steps.length - 1 ? '' : 'none';
+      if (scorri) {
+        var y = document.getElementById('verifica').getBoundingClientRect().top + scrollY - 70;
+        scrollTo({ top: y, behavior: motionOk ? 'smooth' : 'auto' });
+      }
+    }
+    nav.addEventListener('click', function (e) {
+      var b = e.target.closest('[data-dir]');
+      if (b) mostra(i + parseInt(b.dataset.dir, 10), true);
     });
-  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
-  all.forEach(function (el) { io.observe(el); });
-  setTimeout(revealAll, 1500);
+    form.addEventListener('change', function (e) {
+      if (e.target.type === 'radio' && i < steps.length - 1) setTimeout(function () { mostra(i + 1, true); }, 260);
+    });
+    mostra(0, false);
+  }
 })();
 </script>
 
