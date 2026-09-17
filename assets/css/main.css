@@ -371,21 +371,7 @@ html.js .statement__testo .cerchio path { transition-delay: 900ms; }
    06 · STUDIO
    ============================================================ */
 .studio { background: var(--avorio); border-top: 1px solid var(--hairline); }
-.studio__grid { display: grid; grid-template-columns: 5fr 4.4fr 2.6fr; gap: clamp(28px, 4vw, 64px); align-items: start; }
-.studio__ritratti { display: grid; grid-template-columns: repeat(2, minmax(150px, 1fr)); gap: clamp(16px, 1.6vw, 24px); }
-.cameo { margin: 0; text-align: center; }
-.cameo__arco {
-  position: relative;
-  border: 1px solid var(--hairline-forte);
-  border-radius: 999px 999px 0 0;
-  aspect-ratio: 3 / 4.1;
-  background: radial-gradient(120% 90% at 50% 0%, rgba(26, 94, 88, 0.14), rgba(26, 94, 88, 0.04) 55%, rgba(26, 94, 88, 0.09)), var(--avorio-alto);
-  display: flex; align-items: center; justify-content: center;
-}
-.cameo__arco svg { width: 34%; height: auto; opacity: 0.5; }
-.cameo__nota { position: absolute; left: 0; right: 0; bottom: 14px; font-size: 11px; color: var(--inchiostro-70); }
-.cameo__nome { margin: 14px 0 4px 0; font-family: var(--serif); font-weight: 400; font-size: 18px; color: var(--petrolio-notte); }
-.cameo__albo { margin: 0; font-size: 12px; color: var(--inchiostro-70); }
+.studio__grid { display: grid; grid-template-columns: 6.8fr 5.2fr; gap: clamp(32px, 5vw, 88px); align-items: start; }
 .studio__testo p { margin: 0 0 1.2em 0; color: var(--inchiostro-70); font-size: 15.5px; }
 .studio__testo p strong { color: var(--inchiostro); font-weight: 500; }
 .studio__sedi { list-style: none; margin: 24px 0 0 0; padding: 0; display: grid; gap: 12px; }
@@ -393,7 +379,7 @@ html.js .statement__testo .cerchio path { transition-delay: 900ms; }
 .studio__sedi .caps { font-size: 11px; color: var(--petrolio-verde); flex: 0 0 88px; }
 .studio__figura { margin: 0; position: relative; }
 .studio__figura img { width: 100%; height: auto; border: 1px solid var(--hairline-forte); }
-@media (max-width: 1000px) { .studio__grid { grid-template-columns: 1fr; } .studio__ritratti { max-width: 460px; } .studio__figura { max-width: 380px; } }
+@media (max-width: 1000px) { .studio__grid { grid-template-columns: 1fr; } .studio__figura { max-width: 380px; } }
 
 /* ============================================================
    07 · PATTI — due carte firmate sul banco petrolio
