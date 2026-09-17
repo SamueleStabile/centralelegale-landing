@@ -372,7 +372,6 @@
       </header>
       <div class="verifica__strumento rv" style="--d:180ms">
         <form class="form" id="form-verifica" action="#verifica">
-          <p class="form__modo"><a id="toggle-form" href="?form=step#verifica">Preferisci una domanda alla volta? Prova la versione guidata</a></p>
           <div class="wizard__stato" hidden>
             <span class="wizard__conta num" aria-live="polite">Domanda <b>1</b> di 5</span>
             <span class="wizard__barra" aria-hidden="true"><i></i></span>
@@ -544,8 +543,6 @@
 
   /* Modalità wizard: ?form=step */
   var isStep = new URLSearchParams(location.search).get('form') === 'step';
-  var toggle = document.getElementById('toggle-form');
-  if (toggle && isStep) { toggle.textContent = 'Preferisci vedere tutte le domande insieme? Torna alla versione completa'; toggle.href = './#verifica'; }
   if (form && isStep) {
     form.classList.add('form--step');
     var steps = [].slice.call(form.querySelectorAll('fieldset'));
@@ -567,8 +564,6 @@
       avanti.style.display = i === steps.length - 1 ? 'none' : '';
       invio.style.display = i === steps.length - 1 ? '' : 'none';
       if (scorri) {
-        var y = document.getElementById('verifica').getBoundingClientRect().top + scrollY - 70;
-        scrollTo({ top: y, behavior: motionOk ? 'smooth' : 'auto' });
         var leg = steps[i].querySelector('legend');
         if (leg) { leg.setAttribute('tabindex', '-1'); leg.focus({ preventScroll: true }); }
       }

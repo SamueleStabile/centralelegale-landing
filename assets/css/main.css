@@ -415,7 +415,6 @@ html:not(.js) .stickybar { display: none; }
 .verifica__head .section__title { color: #f0ebdd; }
 .verifica__head .section__intro { margin: 18px auto 0; color: var(--secondario-su-petrolio); }
 .verifica__nota { margin: 14px auto 0; max-width: 58ch; font-size: 13px; color: var(--secondario-su-petrolio); }
-.form__modo { margin: 0 0 6px 0; font-size: 13px; }
 .verifica__strumento {
   background: var(--avorio-alto); color: var(--inchiostro);
   border: 1px solid var(--avorio-alto); outline: 1px solid rgba(238, 233, 218, 0.5); outline-offset: 6px;
