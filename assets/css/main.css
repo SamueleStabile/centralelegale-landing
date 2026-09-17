@@ -39,9 +39,9 @@
   --mano: 'Caveat', 'Bradley Hand', 'Segoe Script', cursive;
   --oro: #a07c3b;
   --oro-testo: #7a5c26;
-  --oro-chiaro: #cfaf72;
+  --oro-chiaro: #d9bc82;
   --oro-velo: rgba(160, 124, 59, 0.55);
-  --oro-velo-scuro: rgba(207, 175, 114, 0.5);
+  --oro-velo-scuro: rgba(217, 188, 130, 0.5);
   --salvia-marker: rgba(107, 168, 133, 0.34);
   --salvia-marker-scuro: rgba(77, 160, 119, 0.5);
   --track-caps: 0.14em;
@@ -90,7 +90,6 @@ a:hover { color: var(--verde-salvia); }
 .section--scuro .segnaposto, .patti .segnaposto, .verifica__head .segnaposto { color: var(--secondario-su-petrolio); }
 .patti .carta .segnaposto { color: var(--inchiostro-70); }
 .num { font-variant-numeric: tabular-nums; }
-.rubrica { color: var(--verde-bosco-testo); }
 
 .section { padding-block: clamp(88px, 10vw, 168px); position: relative; }
 .section__head { margin-bottom: clamp(44px, 5vw, 84px); }
@@ -122,10 +121,12 @@ a:hover { color: var(--verde-salvia); }
 .nav__links a:hover { color: var(--petrolio-verde); }
 .nav__meta { display: flex; align-items: center; gap: 18px; color: var(--petrolio-notte); }
 .nav__phone { font-size: 12px; }
-.nav__cta { font-size: 12px; text-decoration: none; color: var(--avorio-alto); background: var(--petrolio-verde); border: 1px solid var(--petrolio-verde); padding: 12px 22px; transition: background 300ms var(--ease-soft), border-color 300ms var(--ease-soft); }
+.nav__cta { font-size: 12px; white-space: nowrap; text-decoration: none; color: var(--avorio-alto); background: var(--petrolio-verde); border: 1px solid var(--petrolio-verde); padding: 12px 22px; transition: background 300ms var(--ease-soft), border-color 300ms var(--ease-soft); }
 .nav__cta:hover { background: var(--petrolio-notte); border-color: var(--petrolio-notte); color: var(--avorio-alto); }
+.nav__cta .cta-corto { display: none; }
 @media (max-width: 980px) { .nav__links { display: none; } }
 @media (max-width: 640px) { .nav__phone { display: none; } .nav__logo img { height: 38px; } }
+@media (max-width: 480px) { .nav__cta .cta-esteso { display: none; } .nav__cta .cta-corto { display: inline; } .nav__cta { padding: 10px 16px; } }
 
 /* Barra sticky di conversione (appare dopo l'hero) */
 .stickybar {
@@ -311,7 +312,7 @@ html:not(.js) .stickybar { display: none; }
 .caso { position: relative; border-bottom: 1px solid var(--hairline); padding: clamp(26px, 3vw, 40px) 0; }
 .caso__testata { display: flex; align-items: baseline; justify-content: space-between; gap: 18px; margin-bottom: 18px; }
 .caso__tipo { margin: 0; font-family: var(--serif); font-weight: 400; font-size: clamp(20px, 1.8vw, 26px); color: var(--petrolio-notte); }
-.caso__tag { font-size: 11.5px; color: var(--inchiostro-70); }
+.caso__tag { font-size: 11.5px; color: var(--inchiostro-70); flex: none; white-space: nowrap; }
 .caso__voce { display: grid; grid-template-columns: 148px 1fr; gap: 14px; padding: 10px 0; border-top: 1px solid var(--hairline); }
 .caso__label { font-size: 11px; color: var(--inchiostro-70); padding-top: 4px; }
 .caso__valore { margin: 0; font-size: 15px; line-height: 1.65; }
@@ -355,7 +356,7 @@ html:not(.js) .stickybar { display: none; }
 .offerta__figura { margin: 0; align-self: stretch; position: relative; min-height: 240px; }
 .offerta__figura img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .offerta__figura figcaption { position: absolute; right: 10px; bottom: 8px; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #f2efe6; background: rgba(10, 25, 22, 0.6); padding: 5px 10px; }
-.offerta__lista h3 { margin: 0 0 16px 0; font-family: var(--serif); font-weight: 400; font-size: clamp(24px, 2.2vw, 32px); line-height: 1.18; color: var(--petrolio-notte); }
+.offerta__lista h2 { margin: 0 0 16px 0; font-family: var(--serif); font-weight: 400; font-size: clamp(24px, 2.2vw, 32px); line-height: 1.18; color: var(--petrolio-notte); }
 .offerta__lista ul { list-style: none; margin: 0; padding: 0; }
 .offerta__lista li { border-top: 1px solid var(--hairline); padding: 11px 0; font-size: 14.5px; color: var(--inchiostro-70); }
 .offerta__azione { display: flex; flex-direction: column; justify-content: center; gap: 16px; border-left: 1px solid var(--hairline); padding-left: clamp(20px, 2.5vw, 40px); }
@@ -461,6 +462,7 @@ html.js .in .carta__icona svg path { stroke-dashoffset: 0; transition: stroke-da
   color: var(--petrolio-notte);
   transition: color 300ms var(--ease-soft);
 }
+.faq__invito { display: block; height: 70px; }
 .faq__icona { width: 42px; height: 42px; object-fit: contain; flex: none; mix-blend-mode: multiply; opacity: 0.85; transition: transform 400ms var(--ease-soft); }
 .faq__item summary:hover .faq__icona { transform: rotate(-6deg) scale(1.06); }
 .faq__item summary > span { flex: 1; }
@@ -560,7 +562,6 @@ html:not(.js) .wizard__stato, html:not(.js) .wizard__nav { display: none; }
 .alba__cta { margin-top: clamp(36px, 4vw, 56px); }
 .alba__coda { background: var(--avorio); border-bottom: 1px solid var(--hairline); text-align: center; }
 .alba__coda p { margin: 0; padding: 16px var(--gutter); font-size: 13.5px; font-weight: 500; color: var(--petrolio-notte); }
-.alba__micro .segnaposto { color: var(--petrolio); }
 
 /* ============================================================
    FOOTER
@@ -578,6 +579,12 @@ html:not(.js) .wizard__stato, html:not(.js) .wizard__nav { display: none; }
    ============================================================ */
 html.js .rv { opacity: 0; transform: translateY(26px); filter: blur(6px); transition: opacity 900ms var(--ease), transform 900ms var(--ease), filter 900ms var(--ease); transition-delay: var(--d, 0ms); }
 html.js .rv.in { opacity: 1; transform: none; filter: none; }
+/* Il reveal non deve mangiarsi tilt e hover di carte e porte */
+html.js .carta.rv.in, html.js .porta.rv.in { transition: opacity 900ms var(--ease) var(--d, 0ms), filter 900ms var(--ease) var(--d, 0ms), transform 600ms var(--ease-soft), box-shadow 600ms var(--ease-soft); }
+html.js .carta--si.rv.in { transform: rotate(-0.55deg); }
+html.js .carta--no.rv.in { transform: rotate(0.6deg); }
+html.js .carta.rv.in:hover { transform: rotate(0deg) translateY(-4px); }
+html.js .porta.rv.in:hover { transform: translateY(-8px); }
 
 html.js .riga { display: block; overflow: clip; }
 html.js .riga > span { display: inline-block; transform: translateY(112%); transition: transform 950ms var(--ease); transition-delay: var(--d, 0ms); }
@@ -680,9 +687,8 @@ html.js .alone .b2 { animation: alone-drift 26s ease-in-out infinite reverse; }
   box-decoration-break: clone; -webkit-box-decoration-break: clone;
 }
 .hi--scuro { background-image: linear-gradient(to top, var(--salvia-marker-scuro), var(--salvia-marker-scuro)); color: #f2eee1; }
-.hi--oro { background-image: linear-gradient(to top, rgba(160, 124, 59, 0.26), rgba(160, 124, 59, 0.26)); }
-html.js .rv .hi, html.js .hi.da-solo { background-size: 0% 0.55em; transition: background-size 700ms var(--ease-draw) 250ms; }
-html.js .rv.in .hi, html.js .in .hi, html.js .hi.da-solo.in { background-size: 100% 0.55em; }
+html.js .rv .hi { background-size: 0% 0.55em; transition: background-size 700ms var(--ease-draw) 250ms; }
+html.js .rv.in .hi, html.js .in .hi { background-size: 100% 0.55em; }
 
 /* ---------- Sottolineatura a mano ---------- */
 .sotto { position: relative; white-space: nowrap; }
@@ -727,7 +733,6 @@ html.js .in .marca::before, html.js .marca.in::before { transform: skewX(-4deg) 
 .freccia-mano { position: absolute; z-index: 3; pointer-events: none; }
 .freccia-mano svg { display: block; width: 100%; height: auto; overflow: visible; }
 .freccia-mano path { stroke: var(--oro-testo); stroke-width: 2.6; fill: none; stroke-linecap: round; stroke-linejoin: round; }
-.freccia-mano--scuro path { stroke: var(--oro-chiaro); }
 .freccia-mano--salvia path { stroke: var(--verde-bosco-testo); }
 html.js .appunto { opacity: 0; transition: opacity 600ms var(--ease) 500ms; }
 html.js .in .appunto, html.js .appunto.in { opacity: 1; }
@@ -764,7 +769,7 @@ html.js .angoli::before, html.js .angoli::after, html.js .angoli .ang::before, h
 html.js .angoli.in::before, html.js .angoli.in::after, html.js .angoli.in .ang::before, html.js .angoli.in .ang::after, html.js .in .angoli::before, html.js .in .angoli::after, html.js .in .angoli .ang::before, html.js .in .angoli .ang::after { opacity: 1; transform: scale(1); }
 
 /* ---------- Scarabocchi ai margini ---------- */
-.scarabocchio { position: absolute; pointer-events: none; color: var(--oro-velo); z-index: 0; }
+.scarabocchio { position: absolute; pointer-events: none; color: var(--oro-velo); z-index: 0; transform: rotate(var(--rot, 0deg)); }
 .scarabocchio svg { display: block; width: 100%; height: auto; }
 .scarabocchio path, .scarabocchio circle, .scarabocchio ellipse { stroke: currentColor; fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
 .scarabocchio--salvia { color: rgba(59, 138, 100, 0.4); }
@@ -823,8 +828,11 @@ html.js .btn--respiro { animation: respiro 4.5s ease-in-out infinite; }
 @media (prefers-reduced-motion: reduce) {
   html.js .alone .b1, html.js .alone .b2, html.js .scarabocchio, html.js .btn--respiro { animation: none; }
   .btn:hover::after { animation: none; }
-  html.js .rv .hi, html.js .hi.da-solo { background-size: 100% 0.55em; transition: none; }
-  html.js .sotto path, html.js .cerchio path, html.js .freccia-mano path, html.js .cornice-mano > svg.cornice path { stroke-dashoffset: 0; transition: none; }
+  html.js .rv .hi { background-size: 100% 0.55em; transition: none; }
+  html.js .sotto path, html.js .cerchio path, html.js .freccia-mano path, html.js .cornice-mano > svg.cornice path, html.js .carta__icona svg path { stroke-dashoffset: 0; transition: none; }
+  .wizard__barra i { transition: none; }
+  .faq__icona, .faq__item summary::after { transition: none; }
+  .faq__item summary:hover .faq__icona { transform: none; }
   html.js .marca::before { transform: skewX(-4deg) scaleX(1); transition: none; }
   html.js .appunto { opacity: 1; transition: none; }
   html.js .filetto:not(.in)::before, html.js .filetto:not(.in)::after { transform: none; }
@@ -833,5 +841,6 @@ html.js .btn--respiro { animation: respiro 4.5s ease-in-out infinite; }
 }
 @media (max-width: 980px) {
   .scarabocchio, .appunto, .freccia-mano, .stampa-margine { display: none; }
+  .faq__invito { display: none; }
   .faq__risposta { padding-left: 4px; }
 }
