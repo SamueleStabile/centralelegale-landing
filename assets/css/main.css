@@ -15,6 +15,7 @@
 @font-face { font-family: 'Poppins'; src: url('../fonts/Poppins-Regular.ttf') format('truetype'); font-weight: 400; font-style: normal; font-display: swap; }
 @font-face { font-family: 'Poppins'; src: url('../fonts/Poppins-Medium.ttf') format('truetype'); font-weight: 500; font-style: normal; font-display: swap; }
 @font-face { font-family: 'Poppins'; src: url('../fonts/Poppins-SemiBold.ttf') format('truetype'); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Caveat'; src: url('../fonts/Caveat-SemiBold.ttf') format('truetype'); font-weight: 600; font-style: normal; font-display: swap; }
 
 /* ---------- Token ---------- */
 :root {
@@ -35,9 +36,18 @@
   --secondario-su-petrolio: #b9cdc6;
   --serif: 'Fraunces', 'Times New Roman', serif;
   --sans: 'Poppins', 'Helvetica Neue', Arial, sans-serif;
+  --mano: 'Caveat', 'Bradley Hand', 'Segoe Script', cursive;
+  --oro: #a07c3b;
+  --oro-testo: #7a5c26;
+  --oro-chiaro: #cfaf72;
+  --oro-velo: rgba(160, 124, 59, 0.55);
+  --oro-velo-scuro: rgba(207, 175, 114, 0.5);
+  --salvia-marker: rgba(107, 168, 133, 0.34);
+  --salvia-marker-scuro: rgba(77, 160, 119, 0.5);
   --track-caps: 0.14em;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-soft: cubic-bezier(0.32, 0.72, 0, 1);
+  --ease-draw: cubic-bezier(0.62, 0, 0.12, 1);
   --gutter: clamp(22px, 5vw, 88px);
 }
 
@@ -78,6 +88,7 @@ a:hover { color: var(--verde-salvia); }
 .container { max-width: 1280px; margin-inline: auto; padding-inline: var(--gutter); }
 .segnaposto { color: var(--inchiostro-70); font-style: normal; }
 .section--scuro .segnaposto, .patti .segnaposto, .verifica__head .segnaposto { color: var(--secondario-su-petrolio); }
+.patti .carta .segnaposto { color: var(--inchiostro-70); }
 .num { font-variant-numeric: tabular-nums; }
 .rubrica { color: var(--verde-bosco-testo); }
 
@@ -166,12 +177,23 @@ html:not(.js) .stickybar { display: none; }
 .hero__fatti .f1 { font-size: 14.5px; font-weight: 500; color: var(--inchiostro); }
 .hero__fatti .f2 { font-size: 12.5px; color: var(--inchiostro-70); }
 
-/* colonna foto full-bleed */
-.hero__foto { position: relative; min-height: 420px; }
-.hero__foto-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 18%; }
-.hero__foto::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(17,59,68,0.10) 0%, rgba(17,59,68,0) 30%); pointer-events: none; }
-.hero__arco-segno { position: absolute; left: 50%; top: clamp(18px, 3vw, 40px); transform: translateX(-50%); width: min(72%, 300px); pointer-events: none; }
-.hero__arco-segno svg { width: 100%; height: auto; display: block; }
+/* colonna foto — arco con chiave di volta (la forma del marchio) */
+.hero__foto { position: relative; display: flex; align-items: flex-end; justify-content: center; padding: clamp(56px, 8vh, 96px) clamp(20px, 2.5vw, 52px) 0; }
+.hero__arch { position: relative; margin: 0; width: min(100%, 460px); }
+.hero__arch::before {
+  content: ""; position: absolute; top: -30px; right: -20px; bottom: 0; left: 22px;
+  border: 1px solid var(--oro-velo); border-bottom: 0;
+  border-radius: 999px 999px 0 0; pointer-events: none;
+}
+.hero__arch-chiave {
+  position: absolute; top: -15px; left: 50%; transform: translateX(-50%);
+  width: 46px; height: 34px; background: var(--verde-salvia);
+  clip-path: polygon(16% 0, 84% 0, 100% 100%, 0 100%);
+  z-index: 2;
+}
+.hero__arch-clip { display: block; position: relative; overflow: hidden; border-radius: 999px 999px 0 0; aspect-ratio: 3 / 4.05; }
+.hero__foto-img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 16%; }
+.hero__arch-clip::after { content: ""; position: absolute; inset: 0; border-radius: 999px 999px 0 0; box-shadow: inset 0 0 0 1px rgba(20, 38, 31, 0.28); pointer-events: none; }
 .hero__foto-nota { position: absolute; right: 14px; bottom: 12px; margin: 0; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #f2efe6; background: rgba(10, 25, 22, 0.6); padding: 5px 10px; }
 
 /* Bottone primario */
@@ -216,9 +238,19 @@ html:not(.js) .stickybar { display: none; }
   border-radius: 999px 999px 0 0;
   color: var(--avorio-su-petrolio);
   min-height: 500px;
-  padding: 74px 34px 34px 34px;
+  padding: 158px 34px 34px 34px;
   transition: transform 600ms var(--ease-soft);
 }
+.porta__icona {
+  position: absolute; top: 30px; left: 50%; transform: translateX(-50%);
+  width: 94px; height: 106px;
+  background: var(--avorio-alto);
+  border-radius: 999px 999px 0 0;
+  display: flex; align-items: flex-end; justify-content: center;
+  overflow: hidden;
+  box-shadow: inset 0 0 0 1px rgba(20, 38, 31, 0.16);
+}
+.porta__icona img { width: 76%; height: auto; max-height: 78px; object-fit: contain; margin-bottom: 7px; mix-blend-mode: multiply; opacity: 0.92; }
 .porta:hover { transform: translateY(-8px); }
 .porta--abete { background: var(--verde-abete); }
 .porta--bosco { background: var(--verde-bosco); }
@@ -362,20 +394,56 @@ html:not(.js) .stickybar { display: none; }
 @media (max-width: 1000px) { .studio__grid { grid-template-columns: 1fr; } .studio__ritratti { max-width: 460px; } .studio__figura { max-width: 380px; } }
 
 /* ============================================================
-   07 · PATTI — checklist a due colonne su drench petrolio
+   07 · PATTI — due carte firmate sul banco petrolio
    ============================================================ */
 .patti { background: var(--petrolio); color: var(--avorio-su-petrolio); }
-.patti__cols { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 5vw, 96px); }
-.patti__col h3 { margin: 0 0 20px 0; font-family: var(--serif); font-weight: 400; font-size: clamp(22px, 2vw, 30px); color: #f0ebdd; }
-.patti__col ul { list-style: none; margin: 0; padding: 0; }
-.patti__col li { display: grid; grid-template-columns: 26px 1fr; gap: 14px; align-items: start; border-top: 1px solid rgba(238, 233, 218, 0.28); padding: 14px 0; font-size: 15px; color: var(--secondario-su-petrolio); }
-.patti__col li strong { color: #f0ebdd; font-weight: 500; }
-.patti__segno { font-family: var(--serif); font-size: 17px; line-height: 1.5; color: #8fcbaa; }
-.patti__col--no .patti__segno { color: #e6b8b2; }
-.esclusioni { margin-top: clamp(44px, 5vw, 80px); border: 1px solid rgba(238, 233, 218, 0.35); padding: 32px clamp(24px, 3vw, 44px); }
+.patti .section__intro { color: var(--secondario-su-petrolio); }
+.patti__carte { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 4vw, 72px); align-items: start; }
+.carta {
+  position: relative;
+  background: var(--avorio-alto); color: var(--inchiostro);
+  box-shadow: 0 18px 44px rgba(5, 20, 22, 0.35);
+  padding: clamp(30px, 3.2vw, 48px) clamp(24px, 2.8vw, 42px) clamp(26px, 3vw, 40px);
+  transition: transform 600ms var(--ease-soft), box-shadow 600ms var(--ease-soft);
+}
+.carta--si { transform: rotate(-0.55deg); }
+.carta--no { transform: rotate(0.6deg); }
+.carta:hover { transform: rotate(0deg) translateY(-4px); box-shadow: 0 26px 54px rgba(5, 20, 22, 0.42); }
+.carta__sigillo {
+  position: absolute; top: -18px; right: 30px; z-index: 2;
+  width: 46px; height: 46px; border-radius: 50%;
+  background: radial-gradient(circle at 34% 30%, #4da077, var(--verde-abete) 62%, #17493f);
+  box-shadow: 0 4px 10px rgba(5, 20, 22, 0.4), inset 0 0 0 5px rgba(242, 236, 224, 0.18);
+}
+.carta__sigillo::after {
+  content: ""; position: absolute; inset: 12px;
+  border: 1px solid rgba(242, 236, 224, 0.55); border-radius: 50%;
+}
+.carta--no .carta__sigillo { background: radial-gradient(circle at 34% 30%, #b5705d, #96503f 62%, #6f382c); }
+.carta__titolo { margin: 0 0 18px 0; display: flex; align-items: baseline; gap: 12px; font-family: var(--serif); font-weight: 400; font-size: clamp(22px, 2vw, 29px); color: var(--petrolio-notte); }
+.carta__segno { font-size: 0.82em; color: var(--verde-bosco-testo); }
+.carta--no .carta__titolo .carta__segno { color: #96503f; }
+.carta ul { list-style: none; margin: 0; padding: 0; }
+.carta li { display: grid; grid-template-columns: 58px 1fr; gap: 16px; align-items: start; border-top: 1px solid var(--hairline); padding: 18px 0; font-size: 14.5px; line-height: 1.65; color: var(--inchiostro-70); }
+.carta li:last-child { padding-bottom: 4px; }
+.carta li strong { display: block; color: var(--inchiostro); font-weight: 500; }
+.carta__icona { position: relative; width: 58px; }
+.carta__icona img { width: 100%; height: 58px; object-fit: contain; mix-blend-mode: multiply; opacity: 0.92; }
+.carta__icona svg { position: absolute; inset: -6%; width: 112%; height: 112%; overflow: visible; pointer-events: none; }
+.carta__icona svg path { stroke: #a35a44; stroke-width: 5; fill: none; stroke-linecap: round; opacity: 0.85; }
+html.js .carta__icona svg path { stroke-dasharray: 1; stroke-dashoffset: 1; }
+html.js .in .carta__icona svg path { stroke-dashoffset: 0; transition: stroke-dashoffset 500ms var(--ease-draw) 700ms; }
+.carta__firma { margin: 22px 0 0 0; padding-top: 14px; border-top: 1px solid var(--hairline); font-family: var(--mano); font-size: 21px; color: var(--petrolio-verde); transform: rotate(-1.2deg); }
+.esclusioni { position: relative; margin-top: clamp(48px, 5vw, 84px); border: 1px solid rgba(238, 233, 218, 0.35); padding: 32px clamp(24px, 3vw, 44px); display: grid; grid-template-columns: 64px 1fr; gap: clamp(18px, 2.5vw, 34px); align-items: start; }
+.esclusioni__icona { width: 64px; height: 64px; background: var(--avorio-alto); display: flex; align-items: center; justify-content: center; }
+.esclusioni__icona img { width: 82%; height: 82%; object-fit: contain; mix-blend-mode: multiply; }
 .esclusioni__titolo { margin: 0 0 10px 0; font-family: var(--serif); font-weight: 400; font-size: 24px; color: #f0ebdd; }
 .esclusioni__testo { margin: 0; max-width: 70ch; color: var(--secondario-su-petrolio); font-size: 15px; }
-@media (max-width: 860px) { .patti__cols { grid-template-columns: 1fr; } }
+@media (max-width: 860px) {
+  .patti__carte { grid-template-columns: 1fr; max-width: 560px; }
+  .carta--si, .carta--no { transform: none; }
+  .esclusioni { grid-template-columns: 1fr; }
+}
 
 /* ============================================================
    08 · FAQ
@@ -387,12 +455,15 @@ html:not(.js) .stickybar { display: none; }
 .faq__item { border-bottom: 1px solid var(--hairline-forte); }
 .faq__item summary {
   list-style: none; cursor: pointer;
-  display: flex; align-items: baseline; justify-content: space-between; gap: 20px;
-  padding: 22px 4px;
+  display: flex; align-items: center; gap: 18px;
+  padding: 18px 4px;
   font-family: var(--serif); font-weight: 400; font-size: clamp(18px, 1.6vw, 23px);
   color: var(--petrolio-notte);
   transition: color 300ms var(--ease-soft);
 }
+.faq__icona { width: 42px; height: 42px; object-fit: contain; flex: none; mix-blend-mode: multiply; opacity: 0.85; transition: transform 400ms var(--ease-soft); }
+.faq__item summary:hover .faq__icona { transform: rotate(-6deg) scale(1.06); }
+.faq__item summary > span { flex: 1; }
 .faq__item summary::-webkit-details-marker { display: none; }
 .faq__item summary:hover { color: var(--petrolio-verde); }
 .faq__item summary::after { content: "+"; font-family: var(--sans); font-weight: 400; font-size: 22px; color: var(--petrolio-verde); flex: none; transition: transform 400ms var(--ease-soft); }
@@ -516,14 +587,17 @@ html.js .evidenzia path { stroke-dasharray: 1; stroke-dashoffset: 1; }
 html.js .evidenzia.in path { animation: tratto 900ms var(--ease-soft) 650ms forwards; }
 @keyframes tratto { to { stroke-dashoffset: 0; } }
 
-html.js .hero__foto-img { opacity: 0; transform: scale(1.045); transition: opacity 1100ms var(--ease), transform 1700ms var(--ease); }
-html.js .hero__foto-img.in { opacity: 1; transform: scale(1); }
-html.js .hero__arco-segno { opacity: 0; transition: opacity 900ms var(--ease) 500ms; }
-html.js .hero__arco-segno.in { opacity: 1; }
+html.js .hero__arch .hero__foto-img { transform: scale(1.05); transform-origin: 50% 22%; transition: transform 1700ms var(--ease); }
+html.js .hero__arch.in .hero__foto-img { transform: scale(1); }
+html.js .hero__arch-chiave { opacity: 0; transform: translateX(-50%) translateY(-10px); transition: opacity 700ms var(--ease) 550ms, transform 700ms var(--ease) 550ms; }
+html.js .hero__arch.in .hero__arch-chiave { opacity: 1; transform: translateX(-50%) translateY(0); }
+html.js .hero__arch::before { opacity: 0; transition: opacity 900ms var(--ease) 700ms; }
+html.js .hero__arch.in::before { opacity: 1; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  html.js .rv, html.js .hero__foto-img, html.js .hero__arco-segno { opacity: 1; transform: none; filter: none; transition: none; }
+  html.js .rv, html.js .hero__arch, html.js .hero__arch .hero__foto-img, html.js .hero__arch-chiave, html.js .hero__arch::before { opacity: 1; transform: none; filter: none; transition: none; }
+  html.js .hero__arch-chiave { transform: translateX(-50%); }
   html.js .riga > span { transform: none; transition: none; }
   html.js .evidenzia path { stroke-dashoffset: 0 !important; animation: none; }
   .fotobanda__img { transform: none !important; }
@@ -536,7 +610,8 @@ html.js .hero__arco-segno.in { opacity: 1; }
 @media (max-width: 980px) {
   .hero__grid { grid-template-columns: 1fr; min-height: 0; }
   .hero__content { padding: 44px var(--gutter) 0 var(--gutter); }
-  .hero__foto { min-height: 72vw; margin-top: 40px; }
+  .hero__foto { margin-top: 48px; padding-top: 30px; }
+  .hero__arch { width: min(82%, 380px); }
   .porte__grid { grid-template-columns: 1fr; max-width: 540px; margin-inline: auto; }
   .porta { min-height: 0; }
 }
@@ -550,4 +625,213 @@ html.js .hero__arco-segno.in { opacity: 1; }
   .targa__list .sep { display: none; }
   .targa__item { white-space: normal; }
   .statement__testo { font-size: clamp(30px, 8.4vw, 44px); }
+}
+
+/* ============================================================
+   ATELIER — il livello di annotazione a mano
+   Aloni verdi, evidenziazioni di seconda lettura, appunti in
+   corsivo con frecce, filetti dorati, scarabocchi ai margini.
+   Ricalca il motion design della reference (draw-in, drift,
+   respiro, sheen) con i colori del banco: petrolio, salvia, oro.
+   ============================================================ */
+
+/* ---------- Aloni (aurora) ---------- */
+.alone { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.alone i { position: absolute; display: block; aspect-ratio: 1 / 1; border-radius: 50%; filter: blur(64px); }
+.alone .b1 { width: 44%; left: -10%; top: -26%; background: radial-gradient(circle, rgba(59, 138, 100, 0.17), transparent 68%); }
+.alone .b2 { width: 38%; right: -9%; bottom: -22%; background: radial-gradient(circle, rgba(15, 76, 76, 0.13), transparent 70%); }
+.alone--scuro i { filter: blur(76px); }
+.alone--scuro .b1 { background: radial-gradient(circle, rgba(143, 203, 170, 0.11), transparent 66%); }
+.alone--scuro .b2 { background: radial-gradient(circle, rgba(238, 233, 218, 0.08), transparent 68%); }
+html.js .alone .b1 { animation: alone-drift 19s ease-in-out infinite; }
+html.js .alone .b2 { animation: alone-drift 26s ease-in-out infinite reverse; }
+@keyframes alone-drift {
+  0%, 100% { transform: translateZ(0) scale(1); }
+  50% { transform: translate3d(4%, -3%, 0) scale(1.12); }
+}
+.hero .alone, .statement .alone { z-index: 0; }
+.hero__grid, .statement > .container { position: relative; z-index: 1; }
+
+/* ---------- Kicker di sezione ---------- */
+.section__kicker {
+  display: flex; align-items: center; gap: 14px;
+  margin: 0 0 20px 0;
+  font-size: 11.5px; font-weight: 500;
+  letter-spacing: var(--track-caps); text-transform: uppercase;
+  color: var(--oro-testo);
+}
+.section__kicker::before { content: ""; width: 36px; height: 1px; background: var(--oro-velo); flex: none; }
+.section__kicker--scuro { color: var(--oro-chiaro); }
+.section__kicker--scuro::before { background: var(--oro-velo-scuro); }
+.section__kicker--centro { justify-content: center; }
+.section__kicker--centro::after { content: ""; width: 36px; height: 1px; background: var(--oro-velo); flex: none; }
+.section__kicker--scuro.section__kicker--centro::after { background: var(--oro-velo-scuro); }
+.offerta .section__kicker { margin-bottom: 34px; }
+.offerta__azione .con-appunto { display: block; }
+.offerta__azione .con-appunto .btn { width: 100%; }
+
+/* ---------- Evidenziatore (seconda lettura) ---------- */
+.hi {
+  background-image: linear-gradient(to top, var(--salvia-marker), var(--salvia-marker));
+  background-repeat: no-repeat;
+  background-size: 100% 0.55em;
+  background-position: 0 82%;
+  padding-inline: 0.06em;
+  box-decoration-break: clone; -webkit-box-decoration-break: clone;
+}
+.hi--scuro { background-image: linear-gradient(to top, var(--salvia-marker-scuro), var(--salvia-marker-scuro)); color: #f2eee1; }
+.hi--oro { background-image: linear-gradient(to top, rgba(160, 124, 59, 0.26), rgba(160, 124, 59, 0.26)); }
+html.js .rv .hi, html.js .hi.da-solo { background-size: 0% 0.55em; transition: background-size 700ms var(--ease-draw) 250ms; }
+html.js .rv.in .hi, html.js .in .hi, html.js .hi.da-solo.in { background-size: 100% 0.55em; }
+
+/* ---------- Sottolineatura a mano ---------- */
+.sotto { position: relative; white-space: nowrap; }
+.sotto svg { position: absolute; left: -1%; bottom: -0.2em; width: 102%; height: 0.32em; overflow: visible; pointer-events: none; }
+.sotto path { stroke: var(--verde-salvia); stroke-width: 6; fill: none; stroke-linecap: round; opacity: 0.8; }
+.sotto--oro path { stroke: var(--oro); }
+.sotto--scuro path { stroke: #8fcbaa; }
+html.js .sotto path { stroke-dasharray: 1; stroke-dashoffset: 1; }
+html.js .in .sotto path, html.js .sotto.in path { stroke-dashoffset: 0; transition: stroke-dashoffset 800ms var(--ease-draw) 350ms; }
+
+/* ---------- Cerchiatura a mano ---------- */
+.cerchio { position: relative; white-space: nowrap; padding-inline: 0.14em; }
+.cerchio svg { position: absolute; left: 50%; top: 50%; width: 132%; height: 190%; transform: translate(-50%, -50%); overflow: visible; pointer-events: none; }
+.cerchio path { stroke: var(--oro); stroke-width: 2.6; fill: none; stroke-linecap: round; opacity: 0.9; }
+.cerchio--salvia path { stroke: var(--verde-salvia); }
+.cerchio--scuro path { stroke: var(--oro-chiaro); }
+html.js .cerchio path { stroke-dasharray: 1; stroke-dashoffset: 1; }
+html.js .in .cerchio path, html.js .cerchio.in path { stroke-dashoffset: 0; transition: stroke-dashoffset 950ms var(--ease-draw) 400ms; }
+
+/* ---------- Marcatore pieno (parola chiave del titolo) ---------- */
+.marca { position: relative; isolation: isolate; color: var(--avorio-alto); padding: 0 0.12em; }
+.marca::before {
+  content: ""; position: absolute; inset: 0.06em -0.08em 0.02em;
+  z-index: -1; background: var(--petrolio-verde);
+  transform: skewX(-4deg);
+}
+html.js .marca::before { transform-origin: left center; transform: skewX(-4deg) scaleX(0); transition: transform 650ms var(--ease-draw) 400ms; }
+html.js .in .marca::before, html.js .marca.in::before { transform: skewX(-4deg) scaleX(1); }
+
+/* ---------- Appunti a mano + frecce ---------- */
+.con-appunto { position: relative; display: inline-block; }
+.appunto {
+  position: absolute; z-index: 3;
+  font-family: var(--mano); font-weight: 600;
+  font-size: clamp(19px, 1.55vw, 24px); line-height: 1.05;
+  color: var(--oro-testo);
+  transform: rotate(var(--rot, -5deg));
+  pointer-events: none; white-space: nowrap;
+}
+.appunto--scuro { color: var(--oro-chiaro); }
+.appunto--salvia { color: var(--verde-bosco-testo); }
+.freccia-mano { position: absolute; z-index: 3; pointer-events: none; }
+.freccia-mano svg { display: block; width: 100%; height: auto; overflow: visible; }
+.freccia-mano path { stroke: var(--oro-testo); stroke-width: 2.6; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.freccia-mano--scuro path { stroke: var(--oro-chiaro); }
+.freccia-mano--salvia path { stroke: var(--verde-bosco-testo); }
+html.js .appunto { opacity: 0; transition: opacity 600ms var(--ease) 500ms; }
+html.js .in .appunto, html.js .appunto.in { opacity: 1; }
+html.js .freccia-mano path { stroke-dasharray: 1; stroke-dashoffset: 1; }
+html.js .in .freccia-mano path, html.js .freccia-mano.in path { stroke-dashoffset: 0; transition: stroke-dashoffset 900ms var(--ease-draw) 650ms; }
+html.js .in .freccia-mano .punta, html.js .freccia-mano.in .punta { transition-delay: 1350ms; transition-duration: 300ms; }
+
+/* ---------- Filetto dorato (il tratto sopra ogni sezione) ---------- */
+.filetto { display: flex; align-items: center; gap: 18px; margin: 0 0 clamp(40px, 5vw, 72px) 0; }
+.filetto::before, .filetto::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--oro-velo) 14%, var(--oro-velo) 86%, transparent); }
+.filetto i { width: 15px; height: 11px; flex: none; background: var(--oro-velo); clip-path: polygon(18% 0, 82% 0, 100% 100%, 0 100%); }
+.filetto--scuro::before, .filetto--scuro::after { background: linear-gradient(90deg, transparent, var(--oro-velo-scuro) 14%, var(--oro-velo-scuro) 86%, transparent); }
+.filetto--scuro i { background: var(--oro-velo-scuro); }
+html.js .filetto::before { transform-origin: right center; }
+html.js .filetto::after { transform-origin: left center; }
+html.js .filetto:not(.in)::before, html.js .filetto:not(.in)::after { transform: scaleX(0); }
+html.js .filetto::before, html.js .filetto::after { transition: transform 1100ms var(--ease-draw) 120ms; }
+html.js .filetto i { opacity: 0; transition: opacity 500ms var(--ease) 900ms; }
+html.js .filetto.in i { opacity: 1; }
+
+/* ---------- Angoli mirino (attorno a box e media) ---------- */
+.angoli { position: relative; }
+.angoli .ang { position: absolute; inset: 0; pointer-events: none; }
+.angoli::before, .angoli::after, .angoli .ang::before, .angoli .ang::after {
+  content: ""; position: absolute; width: 24px; height: 24px; z-index: 2;
+  border: 0 solid var(--oro-velo);
+}
+.angoli::before { top: -9px; left: -9px; border-top-width: 2px; border-left-width: 2px; }
+.angoli::after { bottom: -9px; right: -9px; border-bottom-width: 2px; border-right-width: 2px; }
+.angoli .ang::before { top: -9px; right: -9px; border-top-width: 2px; border-right-width: 2px; }
+.angoli .ang::after { bottom: -9px; left: -9px; border-bottom-width: 2px; border-left-width: 2px; }
+.angoli--scuro::before, .angoli--scuro::after, .angoli--scuro .ang::before, .angoli--scuro .ang::after { border-color: var(--oro-velo-scuro); }
+html.js .angoli::before, html.js .angoli::after, html.js .angoli .ang::before, html.js .angoli .ang::after { opacity: 0; transform: scale(0.6); transition: opacity 500ms var(--ease) 450ms, transform 500ms var(--ease) 450ms; }
+html.js .angoli.in::before, html.js .angoli.in::after, html.js .angoli.in .ang::before, html.js .angoli.in .ang::after, html.js .in .angoli::before, html.js .in .angoli::after, html.js .in .angoli .ang::before, html.js .in .angoli .ang::after { opacity: 1; transform: scale(1); }
+
+/* ---------- Scarabocchi ai margini ---------- */
+.scarabocchio { position: absolute; pointer-events: none; color: var(--oro-velo); z-index: 0; }
+.scarabocchio svg { display: block; width: 100%; height: auto; }
+.scarabocchio path, .scarabocchio circle, .scarabocchio ellipse { stroke: currentColor; fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.scarabocchio--salvia { color: rgba(59, 138, 100, 0.4); }
+.scarabocchio--scuro { color: rgba(207, 175, 114, 0.34); }
+.scarabocchio--avorio { color: rgba(238, 233, 218, 0.22); }
+html.js .scarabocchio { animation: fluttua 10s ease-in-out infinite; animation-delay: var(--fd, 0s); }
+@keyframes fluttua {
+  0%, 100% { transform: translateY(0) rotate(var(--rot, 0deg)); }
+  50% { transform: translateY(-13px) rotate(calc(var(--rot, 0deg) + 3deg)); }
+}
+.stampa-margine { position: absolute; pointer-events: none; mix-blend-mode: multiply; opacity: 0.16; z-index: 0; }
+.stampa-margine img { width: 100%; height: auto; }
+
+.fotobanda .angoli { position: absolute; inset: 24px; pointer-events: none; z-index: 2; }
+
+/* ---------- Cornice disegnata attorno alle figure ---------- */
+.cornice-mano { position: relative; }
+.cornice-mano > svg.cornice {
+  position: absolute; inset: -13px; width: calc(100% + 26px); height: calc(100% + 26px);
+  overflow: visible; pointer-events: none; z-index: 2;
+  transform: rotate(-0.7deg);
+}
+.cornice-mano > svg.cornice path { stroke: var(--oro-velo); stroke-width: 2; fill: none; stroke-linecap: round; }
+.cornice-mano--scuro > svg.cornice path { stroke: var(--oro-velo-scuro); }
+html.js .cornice-mano > svg.cornice path { stroke-dasharray: 1; stroke-dashoffset: 1; }
+html.js .in .cornice-mano > svg.cornice path, html.js .cornice-mano.in > svg.cornice path { stroke-dashoffset: 0; transition: stroke-dashoffset 1300ms var(--ease-draw) 350ms; }
+
+/* ---------- Bottone: sheen + respiro ---------- */
+.btn { position: relative; overflow: hidden; }
+.btn::after {
+  content: ""; position: absolute; top: 0; bottom: 0; left: -80%; width: 46%;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.22), transparent);
+  transform: skewX(-18deg); pointer-events: none;
+}
+.btn:hover::after { animation: sheen 900ms ease; }
+@keyframes sheen { to { left: 170%; } }
+html.js .btn--respiro { animation: respiro 4.5s ease-in-out infinite; }
+@keyframes respiro {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(59, 138, 100, 0.38); }
+  55% { box-shadow: 0 0 0 15px rgba(59, 138, 100, 0); }
+}
+.btn--chiaro.btn--respiro { animation-name: respiro-chiaro; }
+@keyframes respiro-chiaro {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(253, 249, 239, 0.45); }
+  55% { box-shadow: 0 0 0 15px rgba(253, 249, 239, 0); }
+}
+
+/* ---------- Icone incise nelle sezioni ---------- */
+.passo__icona { width: 60px; height: 60px; object-fit: contain; object-position: left bottom; margin: 0 0 10px 0; mix-blend-mode: multiply; opacity: 0.88; }
+.faq__risposta { padding-left: 64px; }
+.offerta__lista li { display: flex; align-items: center; gap: 12px; }
+.offerta__lista li img { width: 40px; height: 40px; object-fit: contain; flex: none; mix-blend-mode: multiply; opacity: 0.85; }
+.casi .stampa-margine { right: calc(-1 * clamp(0px, 2vw, 40px)); bottom: 40px; width: clamp(180px, 18vw, 300px); }
+
+/* ---------- Riduzione del movimento / mobile ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html.js .alone .b1, html.js .alone .b2, html.js .scarabocchio, html.js .btn--respiro { animation: none; }
+  .btn:hover::after { animation: none; }
+  html.js .rv .hi, html.js .hi.da-solo { background-size: 100% 0.55em; transition: none; }
+  html.js .sotto path, html.js .cerchio path, html.js .freccia-mano path, html.js .cornice-mano > svg.cornice path { stroke-dashoffset: 0; transition: none; }
+  html.js .marca::before { transform: skewX(-4deg) scaleX(1); transition: none; }
+  html.js .appunto { opacity: 1; transition: none; }
+  html.js .filetto:not(.in)::before, html.js .filetto:not(.in)::after { transform: none; }
+  html.js .filetto i { opacity: 1; }
+  html.js .angoli::before, html.js .angoli::after, html.js .angoli .ang::before, html.js .angoli .ang::after { opacity: 1; transform: none; }
+}
+@media (max-width: 980px) {
+  .scarabocchio, .appunto, .freccia-mano, .stampa-margine { display: none; }
+  .faq__risposta { padding-left: 4px; }
 }
