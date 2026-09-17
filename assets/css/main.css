@@ -193,8 +193,8 @@ html:not(.js) .stickybar { display: none; }
   z-index: 2;
 }
 .hero__arch-clip { display: block; position: relative; overflow: hidden; border-radius: 999px 999px 0 0; aspect-ratio: 3 / 4.05; background: var(--avorio-alto); }
-.hero__foto-img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 16%; filter: grayscale(1) brightness(1.08) contrast(0.98); }
-.hero__arch-clip::before { content: ""; position: absolute; inset: 0; z-index: 1; background: var(--petrolio); mix-blend-mode: color; pointer-events: none; }
+.hero__foto-img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 16%; filter: grayscale(1) brightness(1.04); }
+.hero__arch-clip::before { content: ""; position: absolute; inset: 0; z-index: 1; background: #35504e; mix-blend-mode: color; opacity: 0.9; pointer-events: none; }
 .hero__arch-clip::after { content: ""; position: absolute; inset: 0; z-index: 2; border-radius: 999px 999px 0 0; box-shadow: inset 0 0 0 1px rgba(20, 38, 31, 0.28); background: linear-gradient(180deg, rgba(242, 236, 224, 0.14) 0%, rgba(242, 236, 224, 0) 30%, rgba(17, 59, 68, 0.12) 100%); pointer-events: none; }
 
 /* Bottone primario */
@@ -243,12 +243,12 @@ html:not(.js) .stickybar { display: none; }
   border-radius: 999px 999px 0 0;
   color: var(--avorio-su-petrolio);
   min-height: 500px;
-  padding: 158px 34px 34px 34px;
+  padding: 200px 34px 34px 34px;
   transition: transform 600ms var(--ease-soft);
 }
 .porta__icona {
-  position: absolute; top: 46px; left: 50%; transform: translateX(-50%);
-  width: 88px; height: 88px; object-fit: contain; opacity: 0.95;
+  position: absolute; top: 36px; left: 50%; transform: translateX(-50%);
+  width: 136px; height: 136px; object-fit: contain; opacity: 0.95;
 }
 .porta:hover { transform: translateY(-8px); }
 .porta--abete { background: var(--verde-abete); }
@@ -408,8 +408,10 @@ html.js .statement__testo .cerchio path { transition-delay: 900ms; }
   padding: clamp(30px, 3.2vw, 48px) clamp(24px, 2.8vw, 42px) clamp(26px, 3vw, 40px);
   transition: transform 600ms var(--ease-soft), box-shadow 600ms var(--ease-soft);
 }
-.carta--si { transform: rotate(-0.55deg); border: 2px solid rgba(44, 111, 79, 0.7); }
-.carta--no { transform: rotate(0.6deg); border: 2px solid rgba(150, 80, 63, 0.65); }
+.carta--si { transform: rotate(-0.55deg); border: 3px solid var(--verde-bosco); box-shadow: 0 0 0 1px rgba(143, 203, 170, 0.35), 0 18px 44px rgba(5, 20, 22, 0.35); }
+.carta--no { transform: rotate(0.6deg); border: 3px solid #96503f; box-shadow: 0 0 0 1px rgba(230, 184, 178, 0.35), 0 18px 44px rgba(5, 20, 22, 0.35); }
+.carta--si .carta__titolo { border-bottom: 2px solid rgba(44, 111, 79, 0.55); padding-bottom: 12px; }
+.carta--no .carta__titolo { border-bottom: 2px solid rgba(150, 80, 63, 0.5); padding-bottom: 12px; }
 .carta:hover { transform: rotate(0deg) translateY(-4px); box-shadow: 0 26px 54px rgba(5, 20, 22, 0.42); }
 .carta__sigillo {
   position: absolute; top: -18px; right: 30px; z-index: 2;
